@@ -4,7 +4,7 @@ import { Document } from 'mongoose';
 
 export type RoleDocument = Role | Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Role extends Base {
   @Prop({ isRequired: true })
   name: string;
