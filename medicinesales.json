@@ -1,0 +1,324 @@
+[{
+  "_id": {
+    "$oid": "625e2f24421199c5896978a5"
+  },
+  "medicine": {
+    "$oid": "625bb52d1fa6f5c57224981d"
+  },
+  "quantity": 2,
+  "amountPerUnit": 3375,
+  "totalAmount": 6750,
+  "createdAt": {
+    "$date": "2022-01-19T03:40:20.858Z"
+  },
+  "updatedAt": {
+    "$date": "2022-01-19T03:40:20.858Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e305e421199c5896978a8"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3420,
+  "totalAmount": 3420,
+  "createdAt": {
+    "$date": "2022-01-19T03:45:34.934Z"
+  },
+  "updatedAt": {
+    "$date": "2022-01-19T03:45:34.934Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e309e421199c5896978ab"
+  },
+  "medicine": {
+    "$oid": "625bb6ef1fa6f5c572249823"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3355,
+  "totalAmount": 3355,
+  "createdAt": {
+    "$date": "2022-01-19T03:46:38.886Z"
+  },
+  "updatedAt": {
+    "$date": "2022-01-19T03:46:38.886Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e30d9421199c5896978ae"
+  },
+  "medicine": {
+    "$oid": "625bb52d1fa6f5c57224981d"
+  },
+  "quantity": 2,
+  "amountPerUnit": 3375,
+  "totalAmount": 6750,
+  "createdAt": {
+    "$date": "2022-02-19T03:47:37.794Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-19T03:47:37.794Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e30f0421199c5896978b1"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3420,
+  "totalAmount": 3420,
+  "createdAt": {
+    "$date": "2022-02-19T03:48:00.763Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-19T03:48:00.763Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e311a421199c5896978b4"
+  },
+  "medicine": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "quantity": 1,
+  "amountPerUnit": 2513,
+  "totalAmount": 2513,
+  "createdAt": {
+    "$date": "2022-02-19T03:48:42.984Z"
+  },
+  "updatedAt": {
+    "$date": "2022-02-19T03:48:42.984Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e3591421199c5896978b7"
+  },
+  "medicine": {
+    "$oid": "625bb6571fa6f5c572249821"
+  },
+  "quantity": 1,
+  "amountPerUnit": 1605,
+  "totalAmount": 1605,
+  "createdAt": {
+    "$date": "2022-03-13T04:07:45.374Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-13T04:07:45.374Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e35bf421199c5896978ba"
+  },
+  "medicine": {
+    "$oid": "625bb6ac1fa6f5c572249822"
+  },
+  "quantity": 1,
+  "amountPerUnit": 1605,
+  "totalAmount": 1605,
+  "createdAt": {
+    "$date": "2022-03-13T04:08:31.181Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-13T04:08:31.181Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e3613421199c5896978bd"
+  },
+  "medicine": {
+    "$oid": "625bb6ef1fa6f5c572249823"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3355,
+  "totalAmount": 3355,
+  "createdAt": {
+    "$date": "2022-03-19T04:09:55.183Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-19T04:09:55.183Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e3642421199c5896978c0"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3420,
+  "totalAmount": 3420,
+  "createdAt": {
+    "$date": "2022-03-19T04:10:42.119Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-19T04:10:42.119Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e3673421199c5896978c3"
+  },
+  "medicine": {
+    "$oid": "625bb52d1fa6f5c57224981d"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3375,
+  "totalAmount": 3375,
+  "createdAt": {
+    "$date": "2022-03-19T04:11:31.307Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-19T04:11:31.307Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e36b1421199c5896978c6"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3420,
+  "totalAmount": 3420,
+  "createdAt": {
+    "$date": "2022-03-31T04:12:33.377Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-31T04:12:33.377Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e36df421199c5896978c9"
+  },
+  "medicine": {
+    "$oid": "625bb5971fa6f5c57224981e"
+  },
+  "quantity": 1,
+  "amountPerUnit": 2054,
+  "totalAmount": 2054,
+  "createdAt": {
+    "$date": "2022-03-31T04:13:19.115Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-31T04:13:19.115Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e3722421199c5896978cc"
+  },
+  "medicine": {
+    "$oid": "625bb5d51fa6f5c57224981f"
+  },
+  "quantity": 1,
+  "amountPerUnit": 1573,
+  "totalAmount": 1573,
+  "createdAt": {
+    "$date": "2022-03-31T04:14:26.918Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-31T04:14:26.918Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e3755421199c5896978cf"
+  },
+  "medicine": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "quantity": 1,
+  "amountPerUnit": 2513,
+  "totalAmount": 2513,
+  "createdAt": {
+    "$date": "2022-03-31T04:15:17.756Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-31T04:15:17.756Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e377f421199c5896978d2"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3420,
+  "totalAmount": 3420,
+  "createdAt": {
+    "$date": "2022-04-19T04:15:59.464Z"
+  },
+  "updatedAt": {
+    "$date": "2022-04-19T04:15:59.464Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e379c421199c5896978d5"
+  },
+  "medicine": {
+    "$oid": "625bb4a61fa6f5c57224981b"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3952,
+  "totalAmount": 3952,
+  "createdAt": {
+    "$date": "2022-04-19T04:16:28.499Z"
+  },
+  "updatedAt": {
+    "$date": "2022-04-19T04:16:28.499Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e37a8421199c5896978d8"
+  },
+  "medicine": {
+    "$oid": "625bb52d1fa6f5c57224981d"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3375,
+  "totalAmount": 3375,
+  "createdAt": {
+    "$date": "2022-04-19T04:16:40.055Z"
+  },
+  "updatedAt": {
+    "$date": "2022-04-19T04:16:40.055Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "625e37b8421199c5896978db"
+  },
+  "medicine": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "quantity": 2,
+  "amountPerUnit": 2513,
+  "totalAmount": 5026,
+  "createdAt": {
+    "$date": "2022-04-19T04:16:56.838Z"
+  },
+  "updatedAt": {
+    "$date": "2022-04-19T04:16:56.838Z"
+  },
+  "__v": 0
+}]

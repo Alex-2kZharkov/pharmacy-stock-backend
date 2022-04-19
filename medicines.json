@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "625bb4a61fa6f5c57224981b"
+  },
+  "name": "Черника Витал 500мл",
+  "quantity": 1,
+  "primaryAmount": 3040,
+  "finalAmount": 3952,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+},{
+  "_id": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "name": "Бодрость на весь день. Витамины A-Z компакт",
+  "quantity": 1,
+  "primaryAmount": 2974,
+  "finalAmount": 3420,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+},{
+  "_id": {
+    "$oid": "625bb52d1fa6f5c57224981d"
+  },
+  "name": "Омега 3 Форте (рыбий жир + масло криля) капсулы",
+  "quantity": 1,
+  "primaryAmount": 2935,
+  "finalAmount": 3375,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+},{
+  "_id": {
+    "$oid": "625bb5971fa6f5c57224981e"
+  },
+  "name": "Крем можжевельник",
+  "quantity": 1,
+  "primaryAmount": 1786,
+  "finalAmount": 2054,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+},{
+  "_id": {
+    "$oid": "625bb5d51fa6f5c57224981f"
+  },
+  "name": "Витал плюс (Масло лосося в капсулах)",
+  "quantity": 1,
+  "primaryAmount": 1368,
+  "finalAmount": 1573,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+},{
+  "_id": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "name": "Напиток Артишок горький Вивасан",
+  "quantity": 1,
+  "primaryAmount": 2185,
+  "finalAmount": 2513,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+},{
+  "_id": {
+    "$oid": "625bb6571fa6f5c572249821"
+  },
+  "name": "Краска для волос Насыщенный коричневый",
+  "quantity": 1,
+  "primaryAmount": 1396,
+  "finalAmount": 1605,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+},{
+  "_id": {
+    "$oid": "625bb6ac1fa6f5c572249822"
+  },
+  "name": "Краска для волос Натуральный коричневый",
+  "quantity": 1,
+  "primaryAmount": 1396,
+  "finalAmount": 1605,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+},{
+  "_id": {
+    "$oid": "625bb6ef1fa6f5c572249823"
+  },
+  "name": "Гинколин форте 60 капсул",
+  "quantity": 1,
+  "primaryAmount": 2935,
+  "finalAmount": 3355,
+  "percent": 15,
+  "createdAt": "2022-01-04T10:10:12.762Z",
+  "updatedAt": "2022-01-04T10:10:12.762Z"
+}]

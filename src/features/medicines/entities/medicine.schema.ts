@@ -1,11 +1,11 @@
-import { Base } from '../../database/Base.schema';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { Base } from '../../../database/Base.schema';
 
 export type MedicineDocument = Medicine | Document;
 
 @Schema()
-export class Medicine extends Base {
+export class Medicine {
   @Prop({ isRequired: true })
   name: string;
 
@@ -13,10 +13,13 @@ export class Medicine extends Base {
   quantity: number;
 
   @Prop({ isRequired: true })
-  amount: number;
+  primaryAmount: number;
 
   @Prop({ isRequired: true })
-  singleAmount: number;
+  finalAmount: number;
+
+  @Prop({ isRequired: true })
+  percent: number;
 }
 
 export const MedicineSchema = SchemaFactory.createForClass(Medicine);

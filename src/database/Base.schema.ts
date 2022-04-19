@@ -3,7 +3,7 @@ import { Prop, Schema } from '@nestjs/mongoose';
 @Schema()
 export class Base {
   @Prop({ isRequired: true })
-  id: string;
+  _id: string;
 
   @Prop({ isRequired: true })
   createdAt: string;
