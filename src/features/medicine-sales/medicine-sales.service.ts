@@ -9,7 +9,10 @@ import {
 } from '../medicines/entities/medicine.schema';
 import { MedicineSale, MedicineSaleDocument } from './entities/medicine.schema';
 import { convertToNumber } from '../../utils/conversion.utils';
-import * as mongoose from 'mongoose';
+import {
+  countUsingBrownDoubleSmoothing,
+  countUsingSimpleExponentialSmoothing,
+} from '../../utils/algorith.utils';
 
 @Injectable()
 export class MedicineSalesService {
@@ -57,8 +60,9 @@ export class MedicineSalesService {
     return `This action returns all medicineSales`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} medicineSale`;
+  findOne(id?: number) {
+    console.log(countUsingBrownDoubleSmoothing(47), '=========');
+    return countUsingSimpleExponentialSmoothing(47);
   }
 
   update(id: number, updateMedicineSaleDto: UpdateMedicineSaleDto) {

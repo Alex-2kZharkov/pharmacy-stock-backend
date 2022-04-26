@@ -5,7 +5,7 @@ import { Document } from 'mongoose';
 export type RoleDocument = Role | Document;
 
 @Schema({ timestamps: true })
-export class Role extends Base {
+export class Role {
   @Prop({ isRequired: true })
   name: string;
 
