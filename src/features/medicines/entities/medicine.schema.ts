@@ -9,7 +9,7 @@ export class Medicine {
   @Prop({ isRequired: true })
   name: string;
 
-  @Prop({ isRequired: true })
+  @Prop({ isRequired: true, default: 0 })
   quantity: number;
 
   @Prop({ isRequired: true })
@@ -20,6 +20,12 @@ export class Medicine {
 
   @Prop({ isRequired: true })
   percent: number;
+
+  @Prop({ default: 0 })
+  prognosis: number;
+
+  @Prop({ default: 0 })
+  soldForMonth: number;
 }
 
 export const MedicineSchema = SchemaFactory.createForClass(Medicine);

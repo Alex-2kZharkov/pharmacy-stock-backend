@@ -1,5 +1,4 @@
 import { CalculationsTypes } from '../types/calculations.types';
-import { FIRST_TWENTY_FACTORIALS } from '../constants/factorial.constants';
 
 export const countUsingSimpleExponentialSmoothing = (
   factNumber: number,
@@ -53,21 +52,21 @@ export const findXByMinimumToleranceError = (
   return min.newPrognosis;
 };
 
-export const countProbabilityUsingPuassonMethod = (x: number): number[] => {
-  let M = x;
-  const step = 5,
-    resultArray = [];
-
-  for (let i = 0; i < 100 + x; i += step) {
-    const factorial = FIRST_TWENTY_FACTORIALS.find(
-      (factorial) => factorial === x,
-    );
-    const res = (M * Math.exp(-M)) / factorial;
-    resultArray.push(res);
-    M = i;
-  }
-  return resultArray.filter((probability) => probability > 0.001);
-};
+// export const countProbabilityUsingPuassonMethod = (x: number): number[] => {
+//   let M = x;
+//   const step = 5,
+//     resultArray = [];
+//
+//   for (let i = 0; i < 100 + x; i += step) {
+//     const factorial = FIRST_TWENTY_FACTORIALS.find(
+//       (factorial) => factorial === x,
+//     );
+//     const res = (M * Math.exp(-M)) / factorial;
+//     resultArray.push(res);
+//     M = i;
+//   }
+//   return resultArray.filter((probability) => probability > 0.001);
+// };
 
 export const countActions = (x: number): number[] => {
   const step = 5,
