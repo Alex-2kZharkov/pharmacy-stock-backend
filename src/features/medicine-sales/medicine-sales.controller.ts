@@ -28,7 +28,7 @@ export class MedicineSalesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.medicineSalesService.findOne(+id);
+    return this.medicineSalesService.findOne(id);
   }
 
   @Patch(':id')

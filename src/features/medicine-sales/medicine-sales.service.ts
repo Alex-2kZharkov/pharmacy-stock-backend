@@ -9,10 +9,6 @@ import {
 } from '../medicines/entities/medicine.schema';
 import { MedicineSale, MedicineSaleDocument } from './entities/medicine.schema';
 import { convertToNumber } from '../../utils/conversion.utils';
-import {
-  countUsingBrownDoubleSmoothing,
-  countUsingSimpleExponentialSmoothing,
-} from '../../utils/algorith.utils';
 
 @Injectable()
 export class MedicineSalesService {
@@ -64,9 +60,8 @@ export class MedicineSalesService {
       .exec();
   }
 
-  findOne(id?: number) {
-    console.log(countUsingBrownDoubleSmoothing(id), '=========');
-    return countUsingSimpleExponentialSmoothing(id);
+  async findOne(id: string) {
+    return 'Find one';
   }
 
   update(id: number, updateMedicineSaleDto: UpdateMedicineSaleDto) {

@@ -11,6 +11,7 @@ import { MedicinesService } from './medicines.service';
 import { CreateMedicineDto } from './dto/create-medicine.dto';
 import { UpdateMedicineDto } from './dto/update-medicine.dto';
 import { MedicineDocument } from './entities/medicine.schema';
+import { PrognosisDto } from './dto/prognosis.dto';
 
 @Controller('/api/medicines')
 export class MedicinesController {
@@ -42,5 +43,10 @@ export class MedicinesController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.medicinesService.remove(+id);
+  }
+
+  @Post('prognosis')
+  createPrognosis(@Body() body: PrognosisDto) {
+    return this.medicinesService.countPrognosis(body.id);
   }
 }
