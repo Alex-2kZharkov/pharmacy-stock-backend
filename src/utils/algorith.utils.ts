@@ -1,21 +1,55 @@
 import { CalculationsTypes } from '../types/calculations.types';
 
-export const countUsingSimpleExponentialSmoothing = (
-  factNumber: number,
-): CalculationsTypes[] => {
-  const resultArray = [],
-    prevPrognosis = factNumber;
+export const countBySimpleExponentialSmoothing = (
+  factNumbers: number[],
+): void => {
+  let [prevFact] = factNumbers;
+  // для всех 0 < альфа <= 1
+  const resultObject = {
+    '0.1': prevFact,
+    '0.2': prevFact,
+    '0.3': prevFact,
+    '0.4': prevFact,
+    '0.5': prevFact,
+    '0.6': prevFact,
+    '0.7': prevFact,
+    '0.8': prevFact,
+    '0.9': prevFact,
+    '1': prevFact,
+  };
 
-  for (let i = 0.1; i <= 1; i += 0.1) {
-    const newPrognosis = factNumber * i + (1 - i) * prevPrognosis;
-    const prognosisObject = {
-      newPrognosis,
-      tolerance: Math.abs(newPrognosis - factNumber),
-    };
-    resultArray.push(prognosisObject);
+  // метод простого сглаживания
+  for (const fact of factNumbers.slice(1)) {
+    for (let j = 0.1; j <= 1; j += 0.1) {
+      const truncIndex = Number(j.toFixed(1));
+      const truncPrognosis = Number(
+        (resultObject[truncIndex] as number).toFixed(4),
+      );
+      const res = Number(
+        (prevFact * truncIndex + (1 - truncIndex) * truncPrognosis).toFixed(4),
+      );
+      resultObject[truncIndex] = res;
+    }
+    prevFact = fact;
   }
-  console.log(resultArray);
-  return resultArray;
+
+  // алгоритм поиска минимального значения (минимум ищется по абсолютной разнице факта и прогноза)
+  const forecasts = Object.values(resultObject);
+  const lastFact = factNumbers[factNumbers.length - 1];
+  let minObj = {
+    tolerance: Math.abs(lastFact - forecasts[0]),
+    prognosis: forecasts[0],
+  };
+
+  for (let i = 1; i < forecasts.length; i++) {
+    const tolerance = Math.abs(lastFact - forecasts[i]);
+    if (minObj.tolerance > tolerance) {
+      minObj = {
+        tolerance,
+        prognosis: forecasts[i],
+      };
+    }
+  }
 };
 
 export const countUsingBrownDoubleSmoothing = (
@@ -39,19 +73,6 @@ export const countUsingBrownDoubleSmoothing = (
   return resultArray;
 };
 
-export const findXByMinimumToleranceError = (
-  ...values: CalculationsTypes[]
-): number => {
-  let min = values[0];
-
-  for (let i = 1; i < values.length; i++) {
-    if (min.tolerance > values[i].tolerance) {
-      min = values[i];
-    }
-  }
-  return min.newPrognosis;
-};
-
 // export const countProbabilityUsingPuassonMethod = (x: number): number[] => {
 //   let M = x;
 //   const step = 5,
@@ -67,16 +88,6 @@ export const findXByMinimumToleranceError = (
 //   }
 //   return resultArray.filter((probability) => probability > 0.001);
 // };
-
-export const countActions = (x: number): number[] => {
-  const step = 5,
-    resultArray = [];
-
-  for (let i = 0; i < 100 + x; i += step) {
-    resultArray.push(i);
-  }
-  return resultArray;
-};
 
 export const createRecommendation = (
   events: number[],

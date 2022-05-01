@@ -10,6 +10,7 @@ import {
 } from '../medicine-sales/entities/medicine.schema';
 import { Base } from '../../database/Base.schema';
 import { sub } from 'date-fns';
+import { countBySimpleExponentialSmoothing } from '../../utils/algorith.utils';
 
 @Injectable()
 export class MedicinesService {
@@ -54,6 +55,7 @@ export class MedicinesService {
 
     const demand = this.getRealDemandByMonths(medicineSales);
     console.log(demand);
+    countBySimpleExponentialSmoothing(demand);
     return medicineSales;
   }
 

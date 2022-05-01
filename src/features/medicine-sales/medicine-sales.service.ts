@@ -35,13 +35,6 @@ export class MedicineSalesService {
     const amountPerUnit = convertToNumber(
       medicine.finalAmount / medicine.quantity,
     );
-    console.log(
-      medicine,
-      amountPerUnit,
-      quantity,
-      medicine.finalAmount,
-      medicineName,
-    );
     const medicineSale = await this.medicineSaleModel.create({
       medicine,
       quantity,
