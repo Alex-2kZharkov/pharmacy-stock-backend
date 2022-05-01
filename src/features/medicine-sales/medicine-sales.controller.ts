@@ -10,6 +10,7 @@ import {
 import { MedicineSalesService } from './medicine-sales.service';
 import { CreateMedicineSaleDto } from './dto/create-medicine-sale.dto';
 import { UpdateMedicineSaleDto } from './dto/update-medicine-sale.dto';
+import { MedicineSaleDocument } from './entities/medicine.schema';
 
 @Controller('/api/medicine-sales')
 export class MedicineSalesController {
@@ -21,7 +22,7 @@ export class MedicineSalesController {
   }
 
   @Get()
-  findAll() {
+  findAll(): Promise<MedicineSaleDocument[]> {
     return this.medicineSalesService.findAll();
   }
 

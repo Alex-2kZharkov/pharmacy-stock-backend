@@ -52,17 +52,21 @@ export class MedicineSalesService {
       amountPerUnit,
       totalAmount: convertToNumber(quantity * amountPerUnit),
     });
-    // await medicineSale.save();
+    await medicineSale.save();
     return 'This action adds a new medicineSale';
   }
 
-  findAll() {
-    return `This action returns all medicineSales`;
+  async findAll(): Promise<MedicineSaleDocument[]> {
+    return await this.medicineSaleModel
+      .find()
+      .sort({ createdAt: -1 })
+      .populate('medicine')
+      .exec();
   }
 
   findOne(id?: number) {
-    console.log(countUsingBrownDoubleSmoothing(47), '=========');
-    return countUsingSimpleExponentialSmoothing(47);
+    console.log(countUsingBrownDoubleSmoothing(id), '=========');
+    return countUsingSimpleExponentialSmoothing(id);
   }
 
   update(id: number, updateMedicineSaleDto: UpdateMedicineSaleDto) {
