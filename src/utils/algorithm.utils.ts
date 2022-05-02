@@ -3,7 +3,7 @@ import {
   convertToNumberWithRounding,
 } from './conversion.utils';
 import { APPLICABLE_PROBABILITY } from '../constants/algorithm.constants';
-import { PoissonResult } from '../types/calculations.types';
+import { PoissonResult, WeightedProfit } from '../types/calculations.types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pmf = require('@stdlib/stats-base-dists-poisson-pmf');
@@ -170,4 +170,73 @@ export const countProbabilityUsingPoissonDistribution = (
     }
   }
   return resultObject;
+};
+
+export const countExpectedMonetaryValue = (
+  weightedProfits: WeightedProfit[][],
+) => {
+  return weightedProfits.reduce((accum, weightedProfitsByAction) => {
+    const expectedMonetaryValue = weightedProfitsByAction.reduce(
+      (innerAccum, weightedProfitParam) => {
+        return {
+          weightedProfit:
+            innerAccum?.weightedProfit + weightedProfitParam.weightedProfit,
+          x: weightedProfitParam.x,
+        };
+      },
+      { weightedProfit: 0, x: null },
+    );
+    accum.push(expectedMonetaryValue);
+    return accum;
+  }, []);
+};
+
+export const countProfit = (
+  prognosis: PoissonResult[],
+  primaryAmount: number,
+  finalAmount: number,
+) => {
+  const weightedProfitsObject = {};
+
+  for (let i = 0; i < prognosis.length; i++) {
+    const event = prognosis[i];
+    for (let j = 0; j < prognosis.length; j++) {
+      const action = prognosis[j];
+      const conditionalProfit =
+        event.x * finalAmount - action.x * primaryAmount;
+      const weightedProfit = conditionalProfit * event.probability;
+      const obj = {
+        weightedProfit,
+        x: action.x,
+      };
+      weightedProfitsObject[j] = weightedProfitsObject[j]
+        ? [...weightedProfitsObject[j], obj]
+        : [obj];
+    }
+  }
+  const weightedProfits: WeightedProfit[][] = Object.values(
+    weightedProfitsObject,
+  );
+  const expectedMonetaryValues = countExpectedMonetaryValue(weightedProfits);
+  return expectedMonetaryValues;
+};
+
+export const getMaximumExpectedMonetaryValue = (
+  weightedProfits: WeightedProfit[],
+) => {
+  let maxObj = {
+    weightedProfit: weightedProfits[0].weightedProfit,
+    x: weightedProfits[0].x,
+  };
+
+  for (let i = 1; i < weightedProfits.length; i++) {
+    const { weightedProfit, x } = weightedProfits[i];
+    if (maxObj.weightedProfit < weightedProfit) {
+      maxObj = {
+        weightedProfit,
+        x,
+      };
+    }
+  }
+  console.log(maxObj);
 };

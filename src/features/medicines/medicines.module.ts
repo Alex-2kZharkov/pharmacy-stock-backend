@@ -6,7 +6,7 @@ import { Medicine, MedicineSchema } from './entities/medicine.schema';
 import {
   MedicineSale,
   MedicineSaleSchema,
-} from '../medicine-sales/entities/medicine.schema';
+} from '../medicine-sales/entities/medicine-sales.schema';
 
 @Module({
   imports: [

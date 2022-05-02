@@ -2,7 +2,10 @@ import { Module } from '@nestjs/common';
 import { MedicineSalesService } from './medicine-sales.service';
 import { MedicineSalesController } from './medicine-sales.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MedicineSale, MedicineSaleSchema } from './entities/medicine.schema';
+import {
+  MedicineSale,
+  MedicineSaleSchema,
+} from './entities/medicine-sales.schema';
 import {
   Medicine,
   MedicineSchema,

@@ -3,3 +3,8 @@ export interface PoissonResult {
   x: number;
   probability: number;
 }
+
+export interface WeightedProfit {
+  weightedProfit: number;
+  x: number;
+}

@@ -7,7 +7,10 @@ import {
   Medicine,
   MedicineDocument,
 } from '../medicines/entities/medicine.schema';
-import { MedicineSale, MedicineSaleDocument } from './entities/medicine.schema';
+import {
+  MedicineSale,
+  MedicineSaleDocument,
+} from './entities/medicine-sales.schema';
 import { convertToNumber } from '../../utils/conversion.utils';
 
 @Injectable()

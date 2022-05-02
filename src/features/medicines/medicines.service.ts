@@ -4,18 +4,20 @@ import { UpdateMedicineDto } from './dto/update-medicine.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Medicine, MedicineDocument } from './entities/medicine.schema';
-import {
-  MedicineSale,
-  MedicineSaleDocument,
-} from '../medicine-sales/entities/medicine.schema';
 import { Base } from '../../database/Base.schema';
 import { sub } from 'date-fns';
 import {
   countByBrownDoubleSmoothing,
   countBySimpleExponentialSmoothing,
+  countProfit,
+  getMaximumExpectedMonetaryValue,
   getMinimumByTolerance,
 } from '../../utils/algorithm.utils';
 import { countProbabilityUsingPoissonDistribution } from '../../utils/algorithm.utils';
+import {
+  MedicineSale,
+  MedicineSaleDocument,
+} from '../medicine-sales/entities/medicine-sales.schema';
 
 @Injectable()
 export class MedicinesService {
@@ -71,6 +73,12 @@ export class MedicinesService {
       ...brownDoubleSmoothingPrognosis,
     );
     const events = countProbabilityUsingPoissonDistribution(orderPoint);
+    const expectedMonetaryValues = countProfit(
+      events,
+      medicine.primaryAmount,
+      medicine.finalAmount,
+    );
+    getMaximumExpectedMonetaryValue(expectedMonetaryValues);
     return orderPoint;
   }
 
