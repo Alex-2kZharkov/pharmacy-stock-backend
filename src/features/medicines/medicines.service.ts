@@ -14,6 +14,7 @@ import {
   countMaxConditionalProfitsByEvent,
   countProfit,
   getMaxExpectedMonetaryValue,
+  getMinExpectedLosses,
   getMinimumByTolerance,
 } from '../../utils/algorithm.utils';
 import { countProbabilityUsingPoissonDistribution } from '../../utils/algorithm.utils';
@@ -63,19 +64,15 @@ export class MedicinesService {
       },
       {},
     );
-    const demand: number[] = medicineSales.reduce(
-      (accum, medicineSale: MedicineSale & Base) => {
-        const monthIndex = new Date(medicineSale.createdAt).getMonth();
-        const quantity = quantitiesByMonths[monthIndex];
-        if (quantity) {
-          accum.push(quantitiesByMonths[monthIndex]);
-          delete quantitiesByMonths[monthIndex];
-        }
-        return accum;
-      },
-      [],
-    );
-    return demand;
+    return medicineSales.reduce((accum, medicineSale: MedicineSale & Base) => {
+      const monthIndex = new Date(medicineSale.createdAt).getMonth();
+      const quantity = quantitiesByMonths[monthIndex];
+      if (quantity) {
+        accum.push(quantitiesByMonths[monthIndex]);
+        delete quantitiesByMonths[monthIndex];
+      }
+      return accum;
+    }, []);
   }
 
   async countPrognosis(id: string) {
@@ -111,7 +108,7 @@ export class MedicinesService {
       medicine.primaryAmount,
       medicine.finalAmount,
     );
-    const maxExpectedMonetaryValue = getMaxExpectedMonetaryValue(
+    const maxExpectedProfit = getMaxExpectedMonetaryValue(
       expectedMonetaryValues,
     );
     const losses = countLosses(
@@ -120,12 +117,29 @@ export class MedicinesService {
       medicine.finalAmount,
     );
     const maxConditionalProfits = countMaxConditionalProfitsByEvent(losses);
-    countLossesByAction(
+    const expectedLosses = countLossesByAction(
       events,
       medicine.primaryAmount,
       medicine.finalAmount,
       maxConditionalProfits,
     );
-    return orderPoint;
+    const minExpectedLose = getMinExpectedLosses(expectedLosses);
+    console.log(maxExpectedProfit, minExpectedLose);
+
+    if (maxExpectedProfit.x === minExpectedLose.x) {
+      medicine.prognosis = maxExpectedProfit.x;
+      medicine.prognosisUpdatedAt = new Date();
+      await this.medicineModel.updateOne(
+        { _id: id },
+        {
+          $set: {
+            prognosis: maxExpectedProfit.x,
+            prognosisUpdatedAt: new Date(),
+          },
+        },
+      );
+      return `Количество товаров к заказу в следующий месяц = ${maxExpectedProfit.x}`;
+    }
+    return 'Не удалось вычислить оптимальное количество товаров к заказу';
   }
 }

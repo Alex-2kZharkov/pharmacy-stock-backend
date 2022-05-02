@@ -24,6 +24,9 @@ export class Medicine {
   @Prop({ default: 0 })
   prognosis: number;
 
+  @Prop()
+  prognosisUpdatedAt: Date;
+
   @Prop({ default: 0 })
   soldForMonth: number;
 }

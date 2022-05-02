@@ -270,7 +270,6 @@ export const countLosses = (
         : [obj];
     }
   }
-  console.log(conditionalProfitsByEvent);
   return conditionalProfitsByEvent;
 };
 
@@ -298,6 +297,23 @@ export const countMaxConditionalProfitsByEvent = (
     conditionalProfits[key] = maxObj;
   }
   return conditionalProfits;
+};
+
+export const countExpectedLosses = (weightedLosses: WeightedLoss[][]) => {
+  return weightedLosses.reduce((accum, weightedLossesByAction) => {
+    const expectedLoss = weightedLossesByAction.reduce(
+      (innerAccum, weightedLossParam) => {
+        return {
+          weightedLoss:
+            innerAccum?.weightedLoss + weightedLossParam.weightedLoss,
+          x: weightedLossParam.x,
+        };
+      },
+      { weightedLoss: 0, x: null },
+    );
+    accum.push(expectedLoss);
+    return accum;
+  }, []);
 };
 
 export const countLossesByAction = (
@@ -329,4 +345,26 @@ export const countLossesByAction = (
     }
   }
   const weightedLosses: WeightedLoss[][] = Object.values(weightedLossesObject);
+  const expectedLosses = countExpectedLosses(weightedLosses);
+  return expectedLosses;
+};
+
+export const getMinExpectedLosses = (
+  weightedLosses: WeightedLoss[],
+): WeightedLoss => {
+  let minObj = {
+    weightedLoss: weightedLosses[0].weightedLoss,
+    x: weightedLosses[0].x,
+  };
+
+  for (let i = 1; i < weightedLosses.length; i++) {
+    const { weightedLoss, x } = weightedLosses[i];
+    if (minObj.weightedLoss > weightedLoss) {
+      minObj = {
+        weightedLoss,
+        x,
+      };
+    }
+  }
+  return minObj;
 };
