@@ -1,0 +1,1 @@
+export const APPLICABLE_PROBABILITY = 0.001;

@@ -14,7 +14,8 @@ import {
   countByBrownDoubleSmoothing,
   countBySimpleExponentialSmoothing,
   getMinimumByTolerance,
-} from '../../utils/algorith.utils';
+} from '../../utils/algorithm.utils';
+import { countProbabilityUsingPoissonDistribution } from '../../utils/algorithm.utils';
 
 @Injectable()
 export class MedicinesService {
@@ -64,11 +65,12 @@ export class MedicinesService {
     const brownDoubleSmoothingPrognosis =
       countByBrownDoubleSmoothing(realDemands);
 
-    const orderPoint = getMinimumByTolerance(
+    const orderPoint: number = getMinimumByTolerance(
       realDemands[realDemands.length - 2],
       ...simpleExponentialSmoothingPrognosis,
       ...brownDoubleSmoothingPrognosis,
     );
+    const events = countProbabilityUsingPoissonDistribution(orderPoint);
     return orderPoint;
   }
 

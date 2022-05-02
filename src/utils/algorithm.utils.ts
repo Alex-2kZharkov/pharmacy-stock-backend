@@ -2,6 +2,11 @@ import {
   convertToNumber,
   convertToNumberWithRounding,
 } from './conversion.utils';
+import { APPLICABLE_PROBABILITY } from '../constants/algorithm.constants';
+import { PoissonResult } from '../types/calculations.types';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const pmf = require('@stdlib/stats-base-dists-poisson-pmf');
 
 export const countBySimpleExponentialSmoothing = (
   factNumbers: number[],
@@ -30,12 +35,10 @@ export const countBySimpleExponentialSmoothing = (
         resultObject[truncIndex] as number,
         4,
       );
-      const res = convertToNumber(
+      resultObject[truncIndex] = convertToNumber(
         prevFact * truncIndex + (1 - truncIndex) * truncPrognosis,
         4,
       );
-
-      resultObject[truncIndex] = res;
     }
     prevFact = fact;
   }
@@ -119,7 +122,7 @@ export const countByBrownDoubleSmoothing = (
       a1 = convertToNumberWithRounding(
         (truncIndex / (1 - truncIndex)) * (S1 - S2),
       );
-      y = convertToNumberWithRounding(a0 + a1 * 1); // т.к. 1 период планирования
+      y = convertToNumberWithRounding(a0 + a1); // т.к. 1 период планирования
       tempObject[truncIndex].value = y;
       tempObject[truncIndex].S1 = S1;
       tempObject[truncIndex].S2 = S2;
@@ -150,18 +153,20 @@ export const getMinimumByTolerance = (
   }
   return minObj.prognosis;
 };
-// export const countProbabilityUsingPuassonMethod = (x: number): number[] => {
-//   let M = x;
-//   const step = 5,
-//     resultArray = [];
-//
-//   for (let i = 0; i < 100 + x; i += step) {
-//     const factorial = FIRST_TWENTY_FACTORIALS.find(
-//       (factorial) => factorial === x,
-//     );
-//     const res = (M * Math.exp(-M)) / factorial;
-//     resultArray.push(res);
-//     M = i;
-//   }
-//   return resultArray.filter((probability) => probability > 0.001);
-// };
+
+export const countProbabilityUsingPoissonDistribution = (
+  prognosis: number,
+): PoissonResult[] => {
+  const resultObject = [];
+  for (let x = 0; x <= 10 + prognosis; x++) {
+    const probability = convertToNumberWithRounding(pmf(x, prognosis), 1000);
+    if (probability > APPLICABLE_PROBABILITY) {
+      resultObject.push({
+        prognosis,
+        x,
+        probability,
+      });
+    }
+  }
+  return resultObject;
+};

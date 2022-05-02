@@ -1,4 +1,5 @@
-export interface CalculationsTypes {
-  newPrognosis: number;
-  tolerance: number;
+export interface PoissonResult {
+  prognosis: number;
+  x: number;
+  probability: number;
 }
