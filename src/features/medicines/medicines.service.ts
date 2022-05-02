@@ -9,8 +9,10 @@ import { sub } from 'date-fns';
 import {
   countByBrownDoubleSmoothing,
   countBySimpleExponentialSmoothing,
+  countLosses,
+  countMaxConditionalProfitsByEvent,
   countProfit,
-  getMaximumExpectedMonetaryValue,
+  getMaxExpectedMonetaryValue,
   getMinimumByTolerance,
 } from '../../utils/algorithm.utils';
 import { countProbabilityUsingPoissonDistribution } from '../../utils/algorithm.utils';
@@ -46,42 +48,6 @@ export class MedicinesService {
     return `This action removes a #${id} medicine`;
   }
 
-  async countPrognosis(id: string) {
-    const medicine: Medicine = await this.medicineModel.findById(id).lean();
-    const medicineSales: MedicineSale[] = await this.medicineSaleModel
-      .find({
-        medicine,
-        createdAt: {
-          $gte: sub(new Date(), { months: 6 }),
-          $lte: new Date(),
-        },
-      })
-      .sort({ createdAt: 1 })
-      .lean();
-
-    const realDemands: number[] = this.getRealDemandByMonths(medicineSales);
-
-    const simpleExponentialSmoothingPrognosis =
-      countBySimpleExponentialSmoothing(realDemands);
-
-    const brownDoubleSmoothingPrognosis =
-      countByBrownDoubleSmoothing(realDemands);
-
-    const orderPoint: number = getMinimumByTolerance(
-      realDemands[realDemands.length - 2],
-      ...simpleExponentialSmoothingPrognosis,
-      ...brownDoubleSmoothingPrognosis,
-    );
-    const events = countProbabilityUsingPoissonDistribution(orderPoint);
-    const expectedMonetaryValues = countProfit(
-      events,
-      medicine.primaryAmount,
-      medicine.finalAmount,
-    );
-    getMaximumExpectedMonetaryValue(expectedMonetaryValues);
-    return orderPoint;
-  }
-
   getRealDemandByMonths(medicineSales: MedicineSaleDocument[]): number[] {
     const quantitiesByMonths = medicineSales.reduce(
       (accum, { createdAt, quantity }: MedicineSale & Base) => {
@@ -109,5 +75,50 @@ export class MedicinesService {
       [],
     );
     return demand;
+  }
+
+  async countPrognosis(id: string) {
+    const medicine: Medicine = await this.medicineModel.findById(id).lean();
+    const medicineSales: MedicineSale[] = await this.medicineSaleModel
+      .find({
+        medicine,
+        createdAt: {
+          $gte: sub(new Date(), { months: 6 }),
+          $lte: new Date(),
+        },
+      })
+      .sort({ createdAt: 1 })
+      .lean();
+
+    const realDemands: number[] = this.getRealDemandByMonths(medicineSales);
+
+    const simpleExponentialSmoothingPrognosis =
+      countBySimpleExponentialSmoothing(realDemands);
+
+    const brownDoubleSmoothingPrognosis =
+      countByBrownDoubleSmoothing(realDemands);
+
+    const orderPoint: number = getMinimumByTolerance(
+      realDemands[realDemands.length - 2],
+      ...simpleExponentialSmoothingPrognosis,
+      ...brownDoubleSmoothingPrognosis,
+    );
+    const events = countProbabilityUsingPoissonDistribution(orderPoint);
+
+    const expectedMonetaryValues = countProfit(
+      events,
+      medicine.primaryAmount,
+      medicine.finalAmount,
+    );
+    const maxExpectedMonetaryValue = getMaxExpectedMonetaryValue(
+      expectedMonetaryValues,
+    );
+    const losses = countLosses(
+      events,
+      medicine.primaryAmount,
+      medicine.finalAmount,
+    );
+    countMaxConditionalProfitsByEvent(losses);
+    return orderPoint;
   }
 }

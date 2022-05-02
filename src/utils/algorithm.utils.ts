@@ -3,7 +3,12 @@ import {
   convertToNumberWithRounding,
 } from './conversion.utils';
 import { APPLICABLE_PROBABILITY } from '../constants/algorithm.constants';
-import { PoissonResult, WeightedProfit } from '../types/calculations.types';
+import {
+  ConditionalProfit,
+  ConditionalProfitByEvent,
+  PoissonResult,
+  WeightedProfit,
+} from '../types/calculations.types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pmf = require('@stdlib/stats-base-dists-poisson-pmf');
@@ -221,9 +226,9 @@ export const countProfit = (
   return expectedMonetaryValues;
 };
 
-export const getMaximumExpectedMonetaryValue = (
+export const getMaxExpectedMonetaryValue = (
   weightedProfits: WeightedProfit[],
-) => {
+): WeightedProfit => {
   let maxObj = {
     weightedProfit: weightedProfits[0].weightedProfit,
     x: weightedProfits[0].x,
@@ -238,5 +243,58 @@ export const getMaximumExpectedMonetaryValue = (
       };
     }
   }
-  console.log(maxObj);
+  return maxObj;
+};
+
+export const countLosses = (
+  prognosis: PoissonResult[],
+  primaryAmount: number,
+  finalAmount: number,
+): ConditionalProfitByEvent => {
+  const conditionalProfitsByEvent = {};
+
+  for (let i = 0; i < prognosis.length; i++) {
+    const event = prognosis[i];
+    for (let j = 0; j < prognosis.length; j++) {
+      const action = prognosis[j];
+      const conditionalProfit =
+        event.x * finalAmount - action.x * primaryAmount;
+      const obj = {
+        conditionalProfit,
+        x: action.x,
+        probability: event.probability,
+      };
+      conditionalProfitsByEvent[i] = conditionalProfitsByEvent[i]
+        ? [...conditionalProfitsByEvent[i], obj]
+        : [obj];
+    }
+  }
+  console.log(conditionalProfitsByEvent);
+  return conditionalProfitsByEvent;
+};
+
+export const countMaxConditionalProfitsByEvent = (
+  conditionalProfits: ConditionalProfitByEvent,
+) => {
+  for (const key in conditionalProfits) {
+    const profits = conditionalProfits[key];
+    let maxObj = {
+      conditionalProfit: profits[0].conditionalProfit,
+      x: profits[0].x,
+      probability: profits[0].probability,
+    };
+
+    for (let i = 1; i < profits.length; i++) {
+      const { conditionalProfit, x, probability } = profits[i];
+      if (maxObj.conditionalProfit < conditionalProfit) {
+        maxObj = {
+          conditionalProfit,
+          x,
+          probability,
+        };
+      }
+    }
+    conditionalProfits[key] = maxObj;
+  }
+  return conditionalProfits;
 };
