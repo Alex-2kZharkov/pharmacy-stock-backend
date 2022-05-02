@@ -10,7 +10,11 @@ import {
 } from '../medicine-sales/entities/medicine.schema';
 import { Base } from '../../database/Base.schema';
 import { sub } from 'date-fns';
-import { countBySimpleExponentialSmoothing } from '../../utils/algorith.utils';
+import {
+  countByBrownDoubleSmoothing,
+  countBySimpleExponentialSmoothing,
+  getMinimumByTolerance,
+} from '../../utils/algorith.utils';
 
 @Injectable()
 export class MedicinesService {
@@ -40,7 +44,6 @@ export class MedicinesService {
   }
 
   async countPrognosis(id: string) {
-    console.log(id);
     const medicine: Medicine = await this.medicineModel.findById(id).lean();
     const medicineSales: MedicineSale[] = await this.medicineSaleModel
       .find({
@@ -53,10 +56,20 @@ export class MedicinesService {
       .sort({ createdAt: 1 })
       .lean();
 
-    const demand = this.getRealDemandByMonths(medicineSales);
-    console.log(demand);
-    countBySimpleExponentialSmoothing(demand);
-    return medicineSales;
+    const realDemands: number[] = this.getRealDemandByMonths(medicineSales);
+
+    const simpleExponentialSmoothingPrognosis =
+      countBySimpleExponentialSmoothing(realDemands);
+
+    const brownDoubleSmoothingPrognosis =
+      countByBrownDoubleSmoothing(realDemands);
+
+    const orderPoint = getMinimumByTolerance(
+      realDemands[realDemands.length - 2],
+      ...simpleExponentialSmoothingPrognosis,
+      ...brownDoubleSmoothingPrognosis,
+    );
+    return orderPoint;
   }
 
   getRealDemandByMonths(medicineSales: MedicineSaleDocument[]): number[] {

@@ -1,9 +1,13 @@
-import { CalculationsTypes } from '../types/calculations.types';
+import {
+  convertToNumber,
+  convertToNumberWithRounding,
+} from './conversion.utils';
 
 export const countBySimpleExponentialSmoothing = (
   factNumbers: number[],
-): void => {
-  let [prevFact] = factNumbers;
+): number[] => {
+  // eslint-disable-next-line prefer-const
+  let [prevFact, ...restFacts] = factNumbers;
   // для всех 0 < альфа <= 1
   const resultObject = {
     '0.1': prevFact,
@@ -19,30 +23,124 @@ export const countBySimpleExponentialSmoothing = (
   };
 
   // метод простого сглаживания
-  for (const fact of factNumbers.slice(1)) {
+  for (const fact of restFacts) {
     for (let j = 0.1; j <= 1; j += 0.1) {
-      const truncIndex = Number(j.toFixed(1));
-      const truncPrognosis = Number(
-        (resultObject[truncIndex] as number).toFixed(4),
+      const truncIndex = convertToNumber(j, 1);
+      const truncPrognosis = convertToNumber(
+        resultObject[truncIndex] as number,
+        4,
       );
-      const res = Number(
-        (prevFact * truncIndex + (1 - truncIndex) * truncPrognosis).toFixed(4),
+      const res = convertToNumber(
+        prevFact * truncIndex + (1 - truncIndex) * truncPrognosis,
+        4,
       );
+
       resultObject[truncIndex] = res;
     }
     prevFact = fact;
   }
 
-  // алгоритм поиска минимального значения (минимум ищется по абсолютной разнице факта и прогноза)
-  const forecasts = Object.values(resultObject);
-  const lastFact = factNumbers[factNumbers.length - 1];
+  return Object.values(resultObject);
+};
+
+export const countByBrownDoubleSmoothing = (
+  factNumbers: number[],
+): number[] => {
+  // метод двойного экспоненциального сглаживания
+
+  // eslint-disable-next-line prefer-const
+  let [prevFact, ...restFacts] = factNumbers;
+  let S1 = prevFact,
+    S2 = prevFact,
+    a0 = prevFact,
+    a1 = 0,
+    y;
+
+  // для всех 0 < альфа <= 0.9
+  const tempObject: {
+    [x: string]: {
+      S1: number;
+      S2: number;
+      value?: number;
+    };
+  } = {
+    '0.1': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+    '0.2': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+    '0.3': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+    '0.4': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+    '0.5': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+    '0.6': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+    '0.7': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+    '0.8': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+    '0.9': {
+      S1: prevFact,
+      S2: prevFact,
+    },
+  };
+
+  // метод простого сглаживания
+  for (const fact of restFacts.slice(0, -1)) {
+    for (let j = 0.1; j <= 0.9; j += 0.1) {
+      const truncIndex = Number(j.toFixed(1));
+
+      S1 = convertToNumberWithRounding(
+        truncIndex * fact + (1 - truncIndex) * tempObject[truncIndex].S1,
+      );
+
+      S2 = convertToNumberWithRounding(
+        truncIndex * S1 + (1 - truncIndex) * tempObject[truncIndex].S2,
+      );
+
+      a0 = convertToNumberWithRounding(2 * S1 - S2);
+      a1 = convertToNumberWithRounding(
+        (truncIndex / (1 - truncIndex)) * (S1 - S2),
+      );
+      y = convertToNumberWithRounding(a0 + a1 * 1); // т.к. 1 период планирования
+      tempObject[truncIndex].value = y;
+      tempObject[truncIndex].S1 = S1;
+      tempObject[truncIndex].S2 = S2;
+    }
+    prevFact = fact;
+  }
+  return Object.values(tempObject).map((property) => property.value);
+};
+
+// алгоритм поиска минимального значения (минимум ищется по абсолютной разнице факта и прогноза)
+export const getMinimumByTolerance = (
+  fact: number,
+  ...forecasts: number[]
+): number => {
   let minObj = {
-    tolerance: Math.abs(lastFact - forecasts[0]),
+    tolerance: Math.abs(fact - forecasts[0]),
     prognosis: forecasts[0],
   };
 
   for (let i = 1; i < forecasts.length; i++) {
-    const tolerance = Math.abs(lastFact - forecasts[i]);
+    const tolerance = Math.abs(fact - forecasts[i]);
     if (minObj.tolerance > tolerance) {
       minObj = {
         tolerance,
@@ -50,29 +148,8 @@ export const countBySimpleExponentialSmoothing = (
       };
     }
   }
+  return minObj.prognosis;
 };
-
-export const countUsingBrownDoubleSmoothing = (
-  factNumber: number,
-): CalculationsTypes[] => {
-  const resultArray = [];
-  let s1 = factNumber,
-    s2 = factNumber;
-
-  for (let i = 0.1; i <= 0.9; i += 0.1) {
-    const newPrognosis = (i / (1 - i)) * (s2 - s1);
-    const prognosisObject = {
-      newPrognosis,
-      tolerance: Math.abs(newPrognosis - factNumber),
-    };
-    resultArray.push(prognosisObject);
-    s1 = i * factNumber + (1 - i) * s1;
-    s2 = i * s1 + (1 - i) * s2;
-  }
-  console.log(resultArray);
-  return resultArray;
-};
-
 // export const countProbabilityUsingPuassonMethod = (x: number): number[] => {
 //   let M = x;
 //   const step = 5,
@@ -88,24 +165,3 @@ export const countUsingBrownDoubleSmoothing = (
 //   }
 //   return resultArray.filter((probability) => probability > 0.001);
 // };
-
-export const createRecommendation = (
-  events: number[],
-  actions: number[],
-): string => {
-  const SALE_PRICE = 1000;
-  const WHOLESALE_PRICE = 850;
-  const KOL = 3;
-  const SALARY = 10000;
-  const RENT_COST = 20000;
-  const ELECTRICITY_COST = 2000;
-  const ADMIN_COST = 1000;
-  const SOCIAL_COST = 2000;
-  const PENSION_COST = 1500;
-  const NDS = 13;
-
-  for (let i = 0; i < actions.length; i++) {
-    for (let j = 0; j < events.length; j++) {}
-  }
-  return '';
-};
