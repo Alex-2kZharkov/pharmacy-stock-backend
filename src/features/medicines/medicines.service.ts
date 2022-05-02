@@ -10,6 +10,7 @@ import {
   countByBrownDoubleSmoothing,
   countBySimpleExponentialSmoothing,
   countLosses,
+  countLossesByAction,
   countMaxConditionalProfitsByEvent,
   countProfit,
   getMaxExpectedMonetaryValue,
@@ -118,7 +119,13 @@ export class MedicinesService {
       medicine.primaryAmount,
       medicine.finalAmount,
     );
-    countMaxConditionalProfitsByEvent(losses);
+    const maxConditionalProfits = countMaxConditionalProfitsByEvent(losses);
+    countLossesByAction(
+      events,
+      medicine.primaryAmount,
+      medicine.finalAmount,
+      maxConditionalProfits,
+    );
     return orderPoint;
   }
 }

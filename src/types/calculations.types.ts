@@ -9,6 +9,11 @@ export interface WeightedProfit {
   x: number;
 }
 
+export interface WeightedLoss {
+  weightedLoss: number;
+  x: number;
+}
+
 export interface ConditionalProfit {
   conditionalProfit: number;
   x: number;

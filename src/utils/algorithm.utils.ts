@@ -7,6 +7,7 @@ import {
   ConditionalProfit,
   ConditionalProfitByEvent,
   PoissonResult,
+  WeightedLoss,
   WeightedProfit,
 } from '../types/calculations.types';
 
@@ -275,7 +276,7 @@ export const countLosses = (
 
 export const countMaxConditionalProfitsByEvent = (
   conditionalProfits: ConditionalProfitByEvent,
-) => {
+): ConditionalProfitByEvent => {
   for (const key in conditionalProfits) {
     const profits = conditionalProfits[key];
     let maxObj = {
@@ -297,4 +298,35 @@ export const countMaxConditionalProfitsByEvent = (
     conditionalProfits[key] = maxObj;
   }
   return conditionalProfits;
+};
+
+export const countLossesByAction = (
+  prognosis: PoissonResult[],
+  primaryAmount: number,
+  finalAmount: number,
+  maxConditionalProfits: ConditionalProfitByEvent,
+) => {
+  const weightedLossesObject = {};
+
+  for (let i = 0; i < prognosis.length; i++) {
+    const event = prognosis[i];
+    for (let j = 0; j < prognosis.length; j++) {
+      const action = prognosis[j];
+      const conditionalProfit =
+        event.x * finalAmount - action.x * primaryAmount;
+      const conditionalLoss =
+        (<ConditionalProfit>maxConditionalProfits[i]).conditionalProfit -
+        conditionalProfit;
+
+      const weightedLoss = conditionalLoss * event.probability;
+      const obj = {
+        weightedLoss: weightedLoss,
+        x: action.x,
+      };
+      weightedLossesObject[j] = weightedLossesObject[j]
+        ? [...weightedLossesObject[j], obj]
+        : [obj];
+    }
+  }
+  const weightedLosses: WeightedLoss[][] = Object.values(weightedLossesObject);
 };
