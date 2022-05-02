@@ -157,6 +157,7 @@ export const getMinimumByTolerance = (
 export const countProbabilityUsingPoissonDistribution = (
   prognosis: number,
 ): PoissonResult[] => {
+  // расчет вероятностей при помощи закона распределения Пуассона из проверенной сторонней библиотеки
   const resultObject = [];
   for (let x = 0; x <= 10 + prognosis; x++) {
     const probability = convertToNumberWithRounding(pmf(x, prognosis), 1000);
