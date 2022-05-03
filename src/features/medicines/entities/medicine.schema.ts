@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { Base } from '../../../database/Base.schema';
 
 export type MedicineDocument = Medicine | Document;
 
@@ -29,6 +28,9 @@ export class Medicine {
 
   @Prop({ default: 0 })
   soldForMonth: number;
+
+  @Prop()
+  orderPoint: number;
 }
 
 export const MedicineSchema = SchemaFactory.createForClass(Medicine);

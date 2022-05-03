@@ -9,7 +9,10 @@ import {
 } from '@nestjs/common';
 import { MedicinesService } from './medicines.service';
 import { CreateMedicineDto } from './dto/create-medicine.dto';
-import { UpdateMedicineDto } from './dto/update-medicine.dto';
+import {
+  UpdateMedicineDto,
+  UpdateOrderPointDto,
+} from './dto/update-medicine.dto';
 import { MedicineDocument } from './entities/medicine.schema';
 import { PrognosisDto } from './dto/prognosis.dto';
 
@@ -38,6 +41,14 @@ export class MedicinesController {
     @Body() updateMedicineDto: UpdateMedicineDto,
   ) {
     return this.medicinesService.update(+id, updateMedicineDto);
+  }
+
+  @Patch('order-point/:id')
+  updateOrderPoint(
+    @Param('id') id: string,
+    @Body() updateOrderPointDto: UpdateOrderPointDto,
+  ) {
+    return this.medicinesService.updateOrderPoint(id, updateOrderPointDto);
   }
 
   @Delete(':id')

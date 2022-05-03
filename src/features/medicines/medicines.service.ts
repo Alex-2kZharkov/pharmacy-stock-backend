@@ -1,6 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMedicineDto } from './dto/create-medicine.dto';
-import { UpdateMedicineDto } from './dto/update-medicine.dto';
+import {
+  UpdateMedicineDto,
+  UpdateOrderPointDto,
+} from './dto/update-medicine.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Medicine, MedicineDocument } from './entities/medicine.schema';
@@ -35,7 +38,7 @@ export class MedicinesService {
   }
 
   async findAll(): Promise<MedicineDocument[]> {
-    return await this.medicineModel.find().exec();
+    return await this.medicineModel.find().sort({ name: 1 }).exec();
   }
 
   findOne(id: number) {
@@ -44,6 +47,17 @@ export class MedicinesService {
 
   update(id: number, updateMedicineDto: UpdateMedicineDto) {
     return `This action updates a #${id} medicine`;
+  }
+
+  async updateOrderPoint(id: string, updateOrderPoint: UpdateOrderPointDto) {
+    try {
+      const medicine = await this.medicineModel.findById(id);
+      await medicine
+        .update({ $set: { orderPoint: updateOrderPoint.orderPoint } })
+        .exec();
+    } catch {
+      throw new NotFoundException('Товар не найден');
+    }
   }
 
   remove(id: number) {
