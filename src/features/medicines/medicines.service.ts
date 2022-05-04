@@ -33,8 +33,12 @@ export class MedicinesService {
     @InjectModel(MedicineSale.name)
     private medicineSaleModel: Model<MedicineSaleDocument>,
   ) {}
-  create(createMedicineDto: CreateMedicineDto) {
-    return 'This action adds a new medicine';
+
+  async create(createMedicineDto: Medicine) {
+    return await this.medicineModel.create({
+      ...createMedicineDto,
+      _id: undefined,
+    });
   }
 
   async findAll(): Promise<MedicineDocument[]> {

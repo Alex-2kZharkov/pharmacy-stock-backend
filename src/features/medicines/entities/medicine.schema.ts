@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 
 export type MedicineDocument = Medicine | Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Medicine {
   @Prop({ isRequired: true })
   name: string;

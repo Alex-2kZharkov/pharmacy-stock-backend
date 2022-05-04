@@ -8,7 +8,6 @@ import {
   Put,
 } from '@nestjs/common';
 import { MedicinesService } from './medicines.service';
-import { CreateMedicineDto } from './dto/create-medicine.dto';
 import { Medicine, MedicineDocument } from './entities/medicine.schema';
 import { PrognosisDto } from './dto/prognosis.dto';
 
@@ -17,7 +16,7 @@ export class MedicinesController {
   constructor(private readonly medicinesService: MedicinesService) {}
 
   @Post()
-  create(@Body() createMedicineDto: CreateMedicineDto) {
+  create(@Body() createMedicineDto: Medicine) {
     return this.medicinesService.create(createMedicineDto);
   }
 
