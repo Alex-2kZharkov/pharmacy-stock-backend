@@ -45,16 +45,10 @@ export class MedicinesService {
     return `This action returns a #${id} medicine`;
   }
 
-  update(id: number, updateMedicineDto: UpdateMedicineDto) {
-    return `This action updates a #${id} medicine`;
-  }
-
-  async updateOrderPoint(id: string, updateOrderPoint: UpdateOrderPointDto) {
+  async update(id: string, updateMedicineDto: UpdateMedicineDto) {
     try {
       const medicine = await this.medicineModel.findById(id);
-      await medicine
-        .update({ $set: { orderPoint: updateOrderPoint.orderPoint } })
-        .exec();
+      await medicine.update({ $set: { ...updateMedicineDto } }).exec();
     } catch {
       throw new NotFoundException('Товар не найден');
     }
@@ -152,8 +146,12 @@ export class MedicinesService {
           },
         },
       );
-      return `Количество товаров к заказу в следующий месяц = ${maxExpectedProfit.x}`;
+      return {
+        message: `Система прогнозирует, что в текущем месяце спрос для товара "${medicine.name}" будет составлять ${maxExpectedProfit.x} ед.`,
+      };
     }
-    return 'Не удалось вычислить оптимальное количество товаров к заказу';
+    return {
+      message: 'Не удалось вычислить оптимальное количество товаров к заказу.',
+    };
   }
 }

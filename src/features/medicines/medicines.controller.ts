@@ -3,17 +3,13 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { MedicinesService } from './medicines.service';
 import { CreateMedicineDto } from './dto/create-medicine.dto';
-import {
-  UpdateMedicineDto,
-  UpdateOrderPointDto,
-} from './dto/update-medicine.dto';
-import { MedicineDocument } from './entities/medicine.schema';
+import { Medicine, MedicineDocument } from './entities/medicine.schema';
 import { PrognosisDto } from './dto/prognosis.dto';
 
 @Controller('/api/medicines')
@@ -35,20 +31,9 @@ export class MedicinesController {
     return this.medicinesService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateMedicineDto: UpdateMedicineDto,
-  ) {
-    return this.medicinesService.update(+id, updateMedicineDto);
-  }
-
-  @Patch('order-point/:id')
-  updateOrderPoint(
-    @Param('id') id: string,
-    @Body() updateOrderPointDto: UpdateOrderPointDto,
-  ) {
-    return this.medicinesService.updateOrderPoint(id, updateOrderPointDto);
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateMedicineDto: Medicine) {
+    return this.medicinesService.update(id, updateMedicineDto);
   }
 
   @Delete(':id')
