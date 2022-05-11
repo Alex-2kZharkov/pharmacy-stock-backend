@@ -33,6 +33,8 @@ export class MedicinesService {
   async create(createMedicineDto: Medicine) {
     return await this.medicineModel.create({
       ...createMedicineDto,
+      quantity: createMedicineDto.quantity || 0,
+      orderPoint: createMedicineDto.orderPoint || 0,
       _id: undefined,
     });
   }
@@ -149,7 +151,15 @@ export class MedicinesService {
         },
       );
       return {
-        message: `Система прогнозирует, что в текущем месяце спрос для товара "${medicine.name}" будет составлять ${maxExpectedProfit.x} ед.`,
+        message: `Менеджеру рекомендуется заказать товар "${
+          medicine.name
+        }" в количестве ${maxExpectedProfit.x} ед., поскольку 
+        выбор данного решения позволит получить максимальную среднюю ожидаемую прибыль (${maxExpectedProfit.weightedProfit.toFixed(
+          2,
+        )})
+        и обеспечит минимальное среднее ожидаемое денежное значение потери (${minExpectedLose.weightedLoss.toFixed(
+          2,
+        )}).`,
       };
     }
     return {

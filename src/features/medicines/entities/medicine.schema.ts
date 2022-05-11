@@ -29,7 +29,7 @@ export class Medicine {
   @Prop({ default: 0 })
   soldForMonth: number;
 
-  @Prop()
+  @Prop({ isRequired: true, default: 0 })
   orderPoint: number;
 }
 
