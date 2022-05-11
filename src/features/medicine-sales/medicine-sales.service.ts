@@ -48,9 +48,17 @@ export class MedicineSalesService {
     return 'This action adds a new medicineSale';
   }
 
-  async findAll(): Promise<MedicineSaleDocument[]> {
+  async findAll(dateFrom: Date | null): Promise<MedicineSaleDocument[]> {
+    const options = dateFrom
+      ? {
+          createdAt: {
+            $gte: dateFrom,
+          },
+        }
+      : undefined;
+
     return await this.medicineSaleModel
-      .find()
+      .find(options)
       .sort({ createdAt: -1 })
       .populate('medicine')
       .exec();

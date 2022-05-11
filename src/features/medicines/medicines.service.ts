@@ -1,9 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateMedicineDto } from './dto/create-medicine.dto';
-import {
-  UpdateMedicineDto,
-  UpdateOrderPointDto,
-} from './dto/update-medicine.dto';
+import { UpdateMedicineDto } from './dto/update-medicine.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Medicine, MedicineDocument } from './entities/medicine.schema';
@@ -120,6 +116,7 @@ export class MedicinesService {
       medicine.primaryAmount,
       medicine.finalAmount,
     );
+    console.log(expectedMonetaryValues);
     const maxExpectedProfit = getMaxExpectedMonetaryValue(
       expectedMonetaryValues,
     );
@@ -135,6 +132,7 @@ export class MedicinesService {
       medicine.finalAmount,
       maxConditionalProfits,
     );
+    console.log(expectedLosses);
     const minExpectedLose = getMinExpectedLosses(expectedLosses);
     console.log(maxExpectedProfit, minExpectedLose);
 

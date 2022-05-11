@@ -6,11 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { MedicineSalesService } from './medicine-sales.service';
 import { CreateMedicineSaleDto } from './dto/create-medicine-sale.dto';
 import { UpdateMedicineSaleDto } from './dto/update-medicine-sale.dto';
 import { MedicineSaleDocument } from './entities/medicine-sales.schema';
+import { addMinutes } from 'date-fns';
 
 @Controller('/api/medicine-sales')
 export class MedicineSalesController {
@@ -22,8 +24,13 @@ export class MedicineSalesController {
   }
 
   @Get()
-  findAll(): Promise<MedicineSaleDocument[]> {
-    return this.medicineSalesService.findAll();
+  findAll(
+    @Query('dateFrom') dateFrom: string,
+  ): Promise<MedicineSaleDocument[]> {
+    const dateFromWithoutTimeZone = dateFrom
+      ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
+      : null;
+    return this.medicineSalesService.findAll(dateFromWithoutTimeZone);
   }
 
   @Get(':id')
