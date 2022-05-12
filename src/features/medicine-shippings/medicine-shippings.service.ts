@@ -13,6 +13,7 @@ import {
 } from './entities/medicine-shipping.schema';
 import { Budget, BudgetDocument } from '../../database/budget.schema';
 import { BudgetEnum } from '../../types/budget.types';
+import { MedicineSaleDocument } from '../medicine-sales/entities/medicine-sales.schema';
 
 @Injectable()
 export class MedicineShippingsService {
@@ -59,8 +60,20 @@ export class MedicineShippingsService {
     return 'This action adds a new medicineShipping';
   }
 
-  findAll() {
-    return `This action returns all medicineShippings`;
+  async findAll(dateFrom: Date | null): Promise<MedicineSaleDocument[]> {
+    const options = dateFrom
+      ? {
+          createdAt: {
+            $gte: dateFrom,
+          },
+        }
+      : undefined;
+
+    return await this.medicineShippingModel
+      .find(options)
+      .sort({ createdAt: -1 })
+      .populate('medicine')
+      .exec();
   }
 
   findOne(id: number) {
