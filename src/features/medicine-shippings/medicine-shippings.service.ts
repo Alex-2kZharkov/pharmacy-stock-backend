@@ -1,6 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMedicineShippingDto } from './dto/create-medicine-shipping.dto';
-import { UpdateMedicineShippingDto } from './dto/update-medicine-shipping.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import {
   Medicine,
@@ -74,17 +73,5 @@ export class MedicineShippingsService {
       .sort({ createdAt: -1 })
       .populate('medicine')
       .exec();
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} medicineShipping`;
-  }
-
-  update(id: number, updateMedicineShippingDto: UpdateMedicineShippingDto) {
-    return `This action updates a #${id} medicineShipping`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} medicineShipping`;
   }
 }

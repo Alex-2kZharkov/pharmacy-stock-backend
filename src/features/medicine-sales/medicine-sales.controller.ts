@@ -1,16 +1,6 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  Query,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body, Query } from '@nestjs/common';
 import { MedicineSalesService } from './medicine-sales.service';
 import { CreateMedicineSaleDto } from './dto/create-medicine-sale.dto';
-import { UpdateMedicineSaleDto } from './dto/update-medicine-sale.dto';
 import { MedicineSaleDocument } from './entities/medicine-sales.schema';
 import { addMinutes } from 'date-fns';
 
@@ -31,23 +21,5 @@ export class MedicineSalesController {
       ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
       : null;
     return this.medicineSalesService.findAll(dateFromWithoutTimeZone);
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.medicineSalesService.findOne(id);
-  }
-
-  @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateMedicineSaleDto: UpdateMedicineSaleDto,
-  ) {
-    return this.medicineSalesService.update(+id, updateMedicineSaleDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.medicineSalesService.remove(+id);
   }
 }

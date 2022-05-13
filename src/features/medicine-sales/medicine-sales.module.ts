@@ -10,6 +10,11 @@ import {
   Medicine,
   MedicineSchema,
 } from '../medicines/entities/medicine.schema';
+import { Budget, BudgetSchema } from '../../database/budget.schema';
+import {
+  MedicineShipping,
+  MedicineShippingSchema,
+} from '../medicine-shippings/entities/medicine-shipping.schema';
 
 @Module({
   imports: [
@@ -19,6 +24,10 @@ import {
     MongooseModule.forFeature([
       { name: MedicineSale.name, schema: MedicineSaleSchema },
     ]),
+    MongooseModule.forFeature([
+      { name: MedicineShipping.name, schema: MedicineShippingSchema },
+    ]),
+    MongooseModule.forFeature([{ name: Budget.name, schema: BudgetSchema }]),
   ],
   controllers: [MedicineSalesController],
   providers: [MedicineSalesService],

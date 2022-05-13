@@ -1,4 +1,9 @@
 export class CreateMedicineSaleDto {
-  medicineName: string;
-  quantity: number;
+  purchaseId?: string;
+  medicineId?: string;
+  name?: string;
+  quantity?: number;
+  sellQuantity: number;
+  finalMedicineAmount?: number;
+  totalAmount: number;
 }
