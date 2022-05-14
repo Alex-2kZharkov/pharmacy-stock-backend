@@ -33,4 +33,12 @@ export class MedicineSalesController {
       : null;
     return this.medicineSalesService.getDemand(id, dateFromWithoutTimeZone);
   }
+
+  @Get('/profit')
+  getShippingCost(@Query('dateFrom') dateFrom: string): Promise<number> {
+    const dateFromWithoutTimeZone = dateFrom
+      ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
+      : null;
+    return this.medicineSalesService.getProfit(dateFromWithoutTimeZone);
+  }
 }

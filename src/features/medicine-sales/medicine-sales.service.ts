@@ -123,4 +123,23 @@ export class MedicineSalesService {
       [],
     );
   }
+
+  async getProfit(dateFrom: Date | null): Promise<number> {
+    const res = await this.medicineSaleModel.aggregate([
+      {
+        $match: {
+          createdAt: {
+            $gte: dateFrom ?? new Date('2021-01-01'),
+          },
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          quantity: { $sum: '$quantity' },
+        },
+      },
+    ]);
+    return res[0]?.quantity ?? 0;
+  }
 }
