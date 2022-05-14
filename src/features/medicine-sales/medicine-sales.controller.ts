@@ -22,4 +22,15 @@ export class MedicineSalesController {
       : null;
     return this.medicineSalesService.findAll(dateFromWithoutTimeZone);
   }
+
+  @Get('demand')
+  getDemand(
+    @Query('dateFrom') dateFrom: string,
+    @Query('id') id: string,
+  ): Promise<MedicineSaleDocument[]> {
+    const dateFromWithoutTimeZone = dateFrom
+      ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
+      : null;
+    return this.medicineSalesService.getDemand(id, dateFromWithoutTimeZone);
+  }
 }

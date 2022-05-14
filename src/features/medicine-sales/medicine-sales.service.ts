@@ -16,6 +16,9 @@ import {
   MedicineShippingDocument,
 } from '../medicine-shippings/entities/medicine-shipping.schema';
 import { BudgetEnum } from '../../types/budget.types';
+import * as mongoose from 'mongoose';
+import { sortBy } from 'lodash';
+import { format } from 'date-fns';
 
 @Injectable()
 export class MedicineSalesService {
@@ -84,5 +87,37 @@ export class MedicineSalesService {
       .sort({ createdAt: -1 })
       .populate('medicine')
       .exec();
+  }
+  async getDemand(id, dateFrom: Date | null): Promise<any> {
+    const res = await this.medicineSaleModel.aggregate([
+      {
+        $match: {
+          createdAt: { $gte: dateFrom },
+          medicine: new mongoose.Types.ObjectId(id),
+        },
+      },
+      {
+        $group: {
+          _id: {
+            $dateToString: { format: '%Y-%m-%d', date: '$createdAt' },
+          },
+          quantity: { $push: '$quantity' },
+        },
+      },
+    ]);
+
+    return sortBy(res, '_id').reduce(
+      (accum, value: { _id: string; quantity: number[] }) => {
+        const quantity = value.quantity.reduce(
+          (quantityAccum, quantity) => quantity + quantityAccum,
+          0,
+        );
+        return [
+          ...accum,
+          { createdAt: format(new Date(value._id), 'dd-MM-yyyy'), quantity },
+        ];
+      },
+      [],
+    );
   }
 }
