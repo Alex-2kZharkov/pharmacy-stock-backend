@@ -24,14 +24,24 @@ export class MedicineSalesController {
   }
 
   @Get('demand')
-  getDemand(
+  getDemandById(
     @Query('dateFrom') dateFrom: string,
     @Query('id') id: string,
   ): Promise<MedicineSaleDocument[]> {
     const dateFromWithoutTimeZone = dateFrom
       ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
       : null;
-    return this.medicineSalesService.getDemand(id, dateFromWithoutTimeZone);
+    return this.medicineSalesService.getDemandById(id, dateFromWithoutTimeZone);
+  }
+
+  @Get('demand-general')
+  getDemand(
+    @Query('dateFrom') dateFrom: string,
+  ): Promise<MedicineSaleDocument[]> {
+    const dateFromWithoutTimeZone = dateFrom
+      ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
+      : null;
+    return this.medicineSalesService.getDemand(dateFromWithoutTimeZone);
   }
 
   @Get('/profit')

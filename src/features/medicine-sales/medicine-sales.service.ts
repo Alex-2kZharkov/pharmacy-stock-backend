@@ -88,12 +88,47 @@ export class MedicineSalesService {
       .populate('medicine')
       .exec();
   }
-  async getDemand(id, dateFrom: Date | null): Promise<any> {
+  async getDemandById(id, dateFrom: Date | null): Promise<any> {
     const res = await this.medicineSaleModel.aggregate([
       {
         $match: {
           createdAt: { $gte: dateFrom ?? subDays(new Date(), 2) },
           medicine: new mongoose.Types.ObjectId(id),
+        },
+      },
+      {
+        $group: {
+          _id: {
+            $dateToString: { format: '%Y-%m-%d', date: '$createdAt' },
+          },
+          quantity: { $push: '$quantity' },
+        },
+      },
+    ]);
+
+    return sortBy(res, '_id').reduce(
+      (accum, value: { _id: string; quantity: number[] }) => {
+        const quantity = value.quantity.reduce(
+          (quantityAccum, quantity) => quantity + quantityAccum,
+          0,
+        );
+        return [
+          ...accum,
+          {
+            createdAt: format(new Date(value._id), 'dd-MM-yyyy'),
+            Продано: quantity,
+          },
+        ];
+      },
+      [],
+    );
+  }
+
+  async getDemand(dateFrom: Date | null): Promise<any> {
+    const res = await this.medicineSaleModel.aggregate([
+      {
+        $match: {
+          createdAt: { $gte: dateFrom ?? subDays(new Date(), 7) },
         },
       },
       {
