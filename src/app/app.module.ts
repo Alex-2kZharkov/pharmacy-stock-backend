@@ -5,9 +5,11 @@ import { UserModule } from '../features/users/user.module';
 import { MedicinesModule } from '../features/medicines/medicines.module';
 import { MedicineSalesModule } from '../features/medicine-sales/medicine-sales.module';
 import { MedicineShippingsModule } from '../features/medicine-shippings/medicine-shippings.module';
+import { BudgetModule } from '../features/budget/budget.module';
 
 @Module({
   imports: [
+    BudgetModule,
     RoleModule,
     UserModule,
     MedicinesModule,

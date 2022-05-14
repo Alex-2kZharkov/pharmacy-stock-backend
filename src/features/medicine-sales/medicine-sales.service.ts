@@ -92,7 +92,7 @@ export class MedicineSalesService {
     const res = await this.medicineSaleModel.aggregate([
       {
         $match: {
-          createdAt: { $gte: dateFrom ?? subDays(new Date(), 14) },
+          createdAt: { $gte: dateFrom ?? subDays(new Date(), 2) },
           medicine: new mongoose.Types.ObjectId(id),
         },
       },
