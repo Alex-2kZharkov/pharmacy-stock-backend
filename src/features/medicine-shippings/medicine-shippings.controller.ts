@@ -24,4 +24,14 @@ export class MedicineShippingsController {
       : null;
     return this.medicineShippingsService.findAll(dateFromWithoutTimeZone);
   }
+
+  @Get('/cost')
+  getShippingCost(@Query('dateFrom') dateFrom: string): Promise<number> {
+    const dateFromWithoutTimeZone = dateFrom
+      ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
+      : null;
+    return this.medicineShippingsService.getShippingCost(
+      dateFromWithoutTimeZone,
+    );
+  }
 }

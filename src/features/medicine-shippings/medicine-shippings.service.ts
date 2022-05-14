@@ -74,4 +74,22 @@ export class MedicineShippingsService {
       .populate('medicine')
       .exec();
   }
+  async getShippingCost(dateFrom: Date | null): Promise<number> {
+    const res = await this.medicineShippingModel.aggregate([
+      {
+        $match: {
+          createdAt: {
+            $gte: dateFrom ?? new Date('2021-01-01'),
+          },
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          amount: { $sum: '$totalAmount' },
+        },
+      },
+    ]);
+    return res[0]?.amount ?? 0;
+  }
 }
