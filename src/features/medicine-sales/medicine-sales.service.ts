@@ -18,7 +18,7 @@ import {
 import { BudgetEnum } from '../../types/budget.types';
 import * as mongoose from 'mongoose';
 import { sortBy } from 'lodash';
-import { format } from 'date-fns';
+import { format, subDays } from 'date-fns';
 
 @Injectable()
 export class MedicineSalesService {
@@ -92,7 +92,7 @@ export class MedicineSalesService {
     const res = await this.medicineSaleModel.aggregate([
       {
         $match: {
-          createdAt: { $gte: dateFrom },
+          createdAt: { $gte: dateFrom ?? subDays(new Date(), 7) },
           medicine: new mongoose.Types.ObjectId(id),
         },
       },
