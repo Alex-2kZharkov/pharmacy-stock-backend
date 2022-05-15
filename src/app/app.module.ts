@@ -6,6 +6,7 @@ import { MedicinesModule } from '../features/medicines/medicines.module';
 import { MedicineSalesModule } from '../features/medicine-sales/medicine-sales.module';
 import { MedicineShippingsModule } from '../features/medicine-shippings/medicine-shippings.module';
 import { BudgetModule } from '../features/budget/budget.module';
+import { RecommendationsModule } from '../features/recommendations/recommendations.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { BudgetModule } from '../features/budget/budget.module';
     MedicinesModule,
     MedicineSalesModule,
     MedicineShippingsModule,
+    RecommendationsModule,
     MongooseModule.forRoot('mongodb://localhost:27017'),
   ],
   controllers: [],

@@ -21,11 +21,17 @@ import {
   MedicineSale,
   MedicineSaleDocument,
 } from '../medicine-sales/entities/medicine-sales.schema';
+import {
+  Recommendation,
+  RecommendationDocument,
+} from '../recommendations/entities/recommendation.schema';
 
 @Injectable()
 export class MedicinesService {
   constructor(
     @InjectModel(Medicine.name) private medicineModel: Model<MedicineDocument>,
+    @InjectModel(Recommendation.name)
+    private recommendationModel: Model<RecommendationDocument>,
     @InjectModel(MedicineSale.name)
     private medicineSaleModel: Model<MedicineSaleDocument>,
   ) {}
@@ -152,16 +158,23 @@ export class MedicinesService {
           },
         },
       );
-      return {
-        message: `Менеджеру рекомендуется заказать товар "${
-          medicine.name
-        }" в количестве ${maxExpectedProfit.x} ед., поскольку 
+      const recommendationDescription = `Менеджеру рекомендуется заказать товар "${
+        medicine.name
+      }" в количестве ${maxExpectedProfit.x} ед., поскольку 
         выбор данного решения позволит получить максимальную среднюю ожидаемую прибыль (${maxExpectedProfit.weightedProfit.toFixed(
           2,
         )})
         и обеспечит минимальное среднее ожидаемое денежное значение потери (${minExpectedLose.weightedLoss.toFixed(
           2,
-        )}).`,
+        )}).`;
+
+      return await this.recommendationModel.create({
+        medicine,
+        description: recommendationDescription,
+      });
+
+      return {
+        message: recommendationDescription,
       };
     }
     return {

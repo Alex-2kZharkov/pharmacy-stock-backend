@@ -7,12 +7,17 @@ import {
   MedicineSale,
   MedicineSaleSchema,
 } from '../medicine-sales/entities/medicine-sales.schema';
+import {
+  Recommendation,
+  RecommendationSchema,
+} from '../recommendations/entities/recommendation.schema';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: Medicine.name, schema: MedicineSchema },
       { name: MedicineSale.name, schema: MedicineSaleSchema },
+      { name: Recommendation.name, schema: RecommendationSchema },
     ]),
   ],
   controllers: [MedicinesController],
