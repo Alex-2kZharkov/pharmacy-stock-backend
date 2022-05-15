@@ -19,7 +19,6 @@ export class UserService {
 
   async create(userDto: UserDto): Promise<UserDocument> {
     const role = await this.roleModel.findOne({ name: userDto.role });
-    console.log(role, userDto);
     return await this.userModel.create({
       ...userDto,
       _id: undefined,

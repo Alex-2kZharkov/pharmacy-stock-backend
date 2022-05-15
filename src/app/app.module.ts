@@ -7,9 +7,11 @@ import { MedicineSalesModule } from '../features/medicine-sales/medicine-sales.m
 import { MedicineShippingsModule } from '../features/medicine-shippings/medicine-shippings.module';
 import { BudgetModule } from '../features/budget/budget.module';
 import { RecommendationsModule } from '../features/recommendations/recommendations.module';
+import { AdministrativePurchasesModule } from '../features/administrative-purchases/administrative-purchases.module';
 
 @Module({
   imports: [
+    AdministrativePurchasesModule,
     BudgetModule,
     RoleModule,
     UserModule,
