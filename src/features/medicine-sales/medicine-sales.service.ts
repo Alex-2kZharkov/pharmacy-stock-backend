@@ -73,7 +73,8 @@ export class MedicineSalesService {
     return 'This action adds a new medicineSale';
   }
 
-  async findAll(dateFrom: Date | null): Promise<MedicineSaleDocument[]> {
+  async findAll(dateFrom: Date | null, name): Promise<MedicineSaleDocument[]> {
+    const regex = new RegExp(name, 'i'); // i for case insensitive
     const options = dateFrom
       ? {
           createdAt: {
@@ -82,11 +83,18 @@ export class MedicineSalesService {
         }
       : undefined;
 
-    return await this.medicineSaleModel
+    const results = await this.medicineSaleModel
       .find(options)
       .sort({ createdAt: -1 })
       .populate('medicine')
       .exec();
+
+    return results.filter((value: MedicineSaleDocument) => {
+      if (name) {
+        return (value as MedicineSale).medicine.name.match(regex);
+      }
+      return value;
+    });
   }
   async getDemandById(id, dateFrom: Date | null): Promise<any> {
     const res = await this.medicineSaleModel.aggregate([

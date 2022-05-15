@@ -39,8 +39,10 @@ export class MedicinesService {
     });
   }
 
-  async findAll(): Promise<MedicineDocument[]> {
-    return await this.medicineModel.find().sort({ name: 1 }).exec();
+  async findAll(name: string): Promise<MedicineDocument[]> {
+    const regex = new RegExp(name, 'i'); // i for case insensitive
+    const options = name ? { name: { $regex: regex } } : undefined;
+    return await this.medicineModel.find(options).sort({ name: 1 }).exec();
   }
 
   findOne(id: number) {

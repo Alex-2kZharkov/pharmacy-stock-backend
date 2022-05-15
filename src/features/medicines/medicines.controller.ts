@@ -6,6 +6,7 @@ import {
   Param,
   Delete,
   Put,
+  Query,
 } from '@nestjs/common';
 import { MedicinesService } from './medicines.service';
 import { Medicine, MedicineDocument } from './entities/medicine.schema';
@@ -21,8 +22,8 @@ export class MedicinesController {
   }
 
   @Get()
-  findAll(): Promise<MedicineDocument[]> {
-    return this.medicinesService.findAll();
+  findAll(@Query('name') name: string): Promise<MedicineDocument[]> {
+    return this.medicinesService.findAll(name);
   }
 
   @Get(':id')

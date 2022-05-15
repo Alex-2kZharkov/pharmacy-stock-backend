@@ -16,11 +16,12 @@ export class MedicineSalesController {
   @Get()
   findAll(
     @Query('dateFrom') dateFrom: string,
+    @Query('name') name: string,
   ): Promise<MedicineSaleDocument[]> {
     const dateFromWithoutTimeZone = dateFrom
       ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
       : null;
-    return this.medicineSalesService.findAll(dateFromWithoutTimeZone);
+    return this.medicineSalesService.findAll(dateFromWithoutTimeZone, name);
   }
 
   @Get('demand')
