@@ -5,6 +5,7 @@ import { User, UserDocument } from './user.schema';
 import { Role, RoleDocument } from '../roles/Role.schema';
 import { UserDto } from './user.dto';
 import * as mongoose from 'mongoose';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
@@ -14,6 +15,14 @@ export class UserService {
   ) {}
 
   async getAll(): Promise<UserDocument[]> {
+    const password = await bcrypt.hash('test-password', 10);
+    await this.userModel.updateOne(
+      {
+        email: 'alexander.06.zharkov@gmail.com',
+      },
+      { password },
+    );
+
     return await this.userModel.find().populate('role').exec();
   }
 
@@ -43,5 +52,9 @@ export class UserService {
       throw new NotFoundException('Пользователь не найден');
     }
     await user.delete();
+  }
+
+  async findOne(email: string): Promise<UserDocument> {
+    return await this.userModel.findOne({ email }).exec();
   }
 }

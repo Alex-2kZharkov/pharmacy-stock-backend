@@ -8,9 +8,11 @@ import { MedicineShippingsModule } from '../features/medicine-shippings/medicine
 import { BudgetModule } from '../features/budget/budget.module';
 import { RecommendationsModule } from '../features/recommendations/recommendations.module';
 import { AdministrativePurchasesModule } from '../features/administrative-purchases/administrative-purchases.module';
+import { AuthModule } from '../features/auth-module/auth.module';
 
 @Module({
   imports: [
+    AuthModule,
     AdministrativePurchasesModule,
     BudgetModule,
     RoleModule,
