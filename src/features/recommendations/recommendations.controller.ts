@@ -1,13 +1,16 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Query, UseGuards } from '@nestjs/common';
 import { RecommendationsService } from './recommendations.service';
 import { addMinutes } from 'date-fns';
 import { RecommendationDocument } from './entities/recommendation.schema';
+import { JwtAuthGuard } from '../auth-module/jwt-auth.guard';
 
 @Controller('api/recommendations')
 export class RecommendationsController {
   constructor(
     private readonly recommendationsService: RecommendationsService,
   ) {}
+
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAll(
     @Query('dateFrom') dateFrom: string,

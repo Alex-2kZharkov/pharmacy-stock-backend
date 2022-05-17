@@ -26,9 +26,10 @@ export class AuthService {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const payload = { email: user.email, sub: user?._id };
-
+    const { password, ...cleanedUser } = user;
     return {
       access_token: this.jwtTokenService.sign(payload),
+      user,
     };
   }
 }

@@ -26,6 +26,10 @@ export class UserService {
     return await this.userModel.find().populate('role').exec();
   }
 
+  async getOne(id: string): Promise<UserDocument> {
+    return await this.userModel.findById(id).exec();
+  }
+
   async create(userDto: UserDto): Promise<UserDocument> {
     const role = await this.roleModel.findOne({ name: userDto.role });
     return await this.userModel.create({
