@@ -45,10 +45,30 @@ export class MedicinesService {
     });
   }
 
-  async findAll(name: string): Promise<MedicineDocument[]> {
+  async findAll(
+    dateFrom: Date | null,
+    name: string,
+  ): Promise<MedicineDocument[]> {
     const regex = new RegExp(name, 'i'); // i for case insensitive
-    const options = name ? { name: { $regex: regex } } : undefined;
-    return await this.medicineModel.find(options).sort({ name: 1 }).exec();
+    const options = dateFrom
+      ? {
+          createdAt: {
+            $gte: dateFrom,
+          },
+        }
+      : undefined;
+
+    const results = await this.medicineModel
+      .find(options)
+      .sort({ createdAt: -1 })
+      .exec();
+
+    return results.filter((value: MedicineDocument) => {
+      if (name) {
+        return (value as Medicine).name.match(regex);
+      }
+      return value;
+    });
   }
 
   findOne(id: number) {
@@ -172,10 +192,6 @@ export class MedicinesService {
         medicine,
         description: recommendationDescription,
       });
-
-      return {
-        message: recommendationDescription,
-      };
     }
     return {
       message: 'Не удалось вычислить оптимальное количество товаров к заказу.',

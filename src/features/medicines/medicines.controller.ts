@@ -10,9 +10,10 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { MedicinesService } from './medicines.service';
-import { Medicine, MedicineDocument } from './entities/medicine.schema';
+import { Medicine } from './entities/medicine.schema';
 import { PrognosisDto } from './dto/prognosis.dto';
 import { JwtAuthGuard } from '../auth-module/jwt-auth.guard';
+import { addMinutes } from 'date-fns';
 
 @Controller('/api/medicines')
 export class MedicinesController {
@@ -26,8 +27,11 @@ export class MedicinesController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  findAll(@Query('name') name: string): Promise<MedicineDocument[]> {
-    return this.medicinesService.findAll(name);
+  findAll(@Query('dateFrom') dateFrom: string, @Query('name') name: string) {
+    const dateFromWithoutTimeZone = dateFrom
+      ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
+      : null;
+    return this.medicinesService.findAll(dateFromWithoutTimeZone, name);
   }
 
   @UseGuards(JwtAuthGuard)
