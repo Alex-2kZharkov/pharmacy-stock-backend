@@ -6,15 +6,18 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDocument } from './user.schema';
 import { UserDto } from './user.dto';
+import { JwtAuthGuard } from '../auth-module/jwt-auth.guard';
 
 @Controller('/api/users')
 export class UserController {
   constructor(private readonly appService: UserService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   getAll(): Promise<UserDocument[]> {
     return this.appService.getAll();
