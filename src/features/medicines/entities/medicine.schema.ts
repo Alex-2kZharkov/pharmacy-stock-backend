@@ -1,5 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import * as mongoose from 'mongoose';
+import { Category } from '../../categories/entities/category.schema';
 
 export type MedicineDocument = Medicine | Document;
 
@@ -7,6 +9,13 @@ export type MedicineDocument = Medicine | Document;
 export class Medicine {
   @Prop({ isRequired: true })
   name: string;
+
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    isRequired: true,
+  })
+  category: Category;
 
   @Prop({ isRequired: true, default: 0 })
   quantity: number;

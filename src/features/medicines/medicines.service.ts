@@ -61,6 +61,7 @@ export class MedicinesService {
     const results = await this.medicineModel
       .find(options)
       .sort({ updatedAt: -1 })
+      .populate('category')
       .exec();
 
     return results.filter((value: MedicineDocument) => {
