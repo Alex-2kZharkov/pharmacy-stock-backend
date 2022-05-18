@@ -52,7 +52,7 @@ export class MedicinesService {
     const regex = new RegExp(name, 'i'); // i for case insensitive
     const options = dateFrom
       ? {
-          createdAt: {
+          updatedAt: {
             $gte: dateFrom,
           },
         }
@@ -60,7 +60,7 @@ export class MedicinesService {
 
     const results = await this.medicineModel
       .find(options)
-      .sort({ createdAt: -1 })
+      .sort({ updatedAt: -1 })
       .exec();
 
     return results.filter((value: MedicineDocument) => {
