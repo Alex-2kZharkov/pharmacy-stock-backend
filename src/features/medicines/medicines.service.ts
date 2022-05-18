@@ -48,6 +48,7 @@ export class MedicinesService {
   async findAll(
     dateFrom: Date | null,
     name: string,
+    categoryFilter: string,
   ): Promise<MedicineDocument[]> {
     const regex = new RegExp(name, 'i'); // i for case insensitive
     const options = dateFrom
@@ -68,6 +69,10 @@ export class MedicinesService {
       if (name) {
         return (value as Medicine).name.match(regex);
       }
+      if (categoryFilter) {
+        return (value as Medicine).category?.name?.match(categoryFilter);
+      }
+
       return value;
     });
   }

@@ -27,11 +27,19 @@ export class MedicinesController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  findAll(@Query('dateFrom') dateFrom: string, @Query('name') name: string) {
+  findAll(
+    @Query('dateFrom') dateFrom: string,
+    @Query('name') name: string,
+    @Query('categoryFilter') categoryFilter: string,
+  ) {
     const dateFromWithoutTimeZone = dateFrom
       ? addMinutes(new Date(dateFrom), -new Date(dateFrom).getTimezoneOffset())
       : null;
-    return this.medicinesService.findAll(dateFromWithoutTimeZone, name);
+    return this.medicinesService.findAll(
+      dateFromWithoutTimeZone,
+      name,
+      categoryFilter,
+    );
   }
 
   @UseGuards(JwtAuthGuard)
