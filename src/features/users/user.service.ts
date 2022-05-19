@@ -27,7 +27,9 @@ export class UserService {
   }
 
   async getOne(id: string): Promise<UserDocument> {
-    return await this.userModel.findById(id).exec();
+    if (id !== 'undefined') {
+      return await this.userModel.findById(id).exec();
+    }
   }
 
   async create(userDto: UserDto): Promise<UserDocument> {
