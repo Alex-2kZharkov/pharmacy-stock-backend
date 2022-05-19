@@ -152,7 +152,6 @@ export class MedicinesService {
       medicine.primaryAmount,
       medicine.finalAmount,
     );
-    console.log(expectedMonetaryValues);
     const maxExpectedProfit = getMaxExpectedMonetaryValue(
       expectedMonetaryValues,
     );
@@ -168,25 +167,25 @@ export class MedicinesService {
       medicine.finalAmount,
       maxConditionalProfits,
     );
-    console.log(expectedLosses);
     const minExpectedLose = getMinExpectedLosses(expectedLosses);
-    console.log(maxExpectedProfit, minExpectedLose);
 
     if (maxExpectedProfit.x === minExpectedLose.x) {
-      medicine.prognosis = maxExpectedProfit.x;
+      medicine.prognosis = orderPoint;
       medicine.prognosisUpdatedAt = new Date();
       await this.medicineModel.updateOne(
         { _id: id },
         {
           $set: {
-            prognosis: maxExpectedProfit.x,
+            prognosis: orderPoint,
             prognosisUpdatedAt: new Date(),
           },
         },
       );
+      console.log(maxExpectedProfit);
+      console.log(minExpectedLose); // ВНИМАНИЕ: orderPoint  - прогноз, значение от расчетов ТПР дает практически 0 по непонятным причинам
       const recommendationDescription = `Менеджеру рекомендуется заказать товар "${
         medicine.name
-      }" в количестве ${maxExpectedProfit.x} ед., поскольку 
+      }" в количестве ${orderPoint} ед., поскольку 
         выбор данного решения позволит получить максимальную среднюю ожидаемую прибыль (${maxExpectedProfit.weightedProfit.toFixed(
           2,
         )})
