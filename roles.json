@@ -1,25 +1,35 @@
 [{
   "_id": {
-    "$oid": "6249ddb54d758458f8286940"
+    "$oid": "6263e1232efae24aeaaafc1d"
   },
   "name": "ADMIN",
   "description": "Администратор",
-  "createdAt": "2022-04-04T10:10:12.762Z",
-  "updatedAt": "2022-04-04T10:10:12.762Z"
-},{
-  "_id": {
-    "$oid": "6249ddf94d758458f8286941"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1650712867544"
+    }
   },
-  "name": "EMPLOYEE",
-  "description": "Работник",
-  "createdAt": "2022-04-04T10:10:12.762Z",
-  "updatedAt": "2022-04-04T10:10:12.762Z"
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1650712867544"
+    }
+  },
+  "__v": 0
 },{
   "_id": {
-    "$oid": "6249de334d758458f8286942"
+    "$oid": "6263e1342efae24aeaaafc1f"
   },
   "name": "MANAGER",
   "description": "Менеджер",
-  "createdAt": "2022-04-04T10:10:12.762Z",
-  "updatedAt": "2022-04-04T10:10:12.762Z"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1650712884451"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1650712884451"
+    }
+  },
+  "__v": 0
 }]

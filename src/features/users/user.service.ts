@@ -28,7 +28,7 @@ export class UserService {
 
   async getOne(id: string): Promise<UserDocument> {
     if (id !== 'undefined') {
-      return await this.userModel.findById(id).exec();
+      return await this.userModel.findById(id).populate('role').exec();
     }
   }
 
@@ -61,6 +61,6 @@ export class UserService {
   }
 
   async findOne(email: string): Promise<UserDocument> {
-    return await this.userModel.findOne({ email }).exec();
+    return await this.userModel.findOne({ email }).populate('role').exec();
   }
 }

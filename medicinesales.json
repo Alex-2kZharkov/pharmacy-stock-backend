@@ -9,10 +9,14 @@
   "amountPerUnit": 3375,
   "totalAmount": 6750,
   "createdAt": {
-    "$date": "2022-01-19T03:40:20.858Z"
+    "$date": {
+      "$numberLong": "1642563620858"
+    }
   },
   "updatedAt": {
-    "$date": "2022-01-19T03:40:20.858Z"
+    "$date": {
+      "$numberLong": "1642563620858"
+    }
   },
   "__v": 0
 },{
@@ -22,14 +26,18 @@
   "medicine": {
     "$oid": "625bb4cc1fa6f5c57224981c"
   },
-  "quantity": 1,
+  "quantity": 2,
   "amountPerUnit": 3420,
   "totalAmount": 3420,
   "createdAt": {
-    "$date": "2022-01-19T03:45:34.934Z"
+    "$date": {
+      "$numberLong": "1642563934934"
+    }
   },
   "updatedAt": {
-    "$date": "2022-01-19T03:45:34.934Z"
+    "$date": {
+      "$numberLong": "1642563934934"
+    }
   },
   "__v": 0
 },{
@@ -43,10 +51,14 @@
   "amountPerUnit": 3355,
   "totalAmount": 3355,
   "createdAt": {
-    "$date": "2022-01-19T03:46:38.886Z"
+    "$date": {
+      "$numberLong": "1642563998886"
+    }
   },
   "updatedAt": {
-    "$date": "2022-01-19T03:46:38.886Z"
+    "$date": {
+      "$numberLong": "1642563998886"
+    }
   },
   "__v": 0
 },{
@@ -60,10 +72,14 @@
   "amountPerUnit": 3375,
   "totalAmount": 6750,
   "createdAt": {
-    "$date": "2022-02-19T03:47:37.794Z"
+    "$date": {
+      "$numberLong": "1645242457794"
+    }
   },
   "updatedAt": {
-    "$date": "2022-02-19T03:47:37.794Z"
+    "$date": {
+      "$numberLong": "1645242457794"
+    }
   },
   "__v": 0
 },{
@@ -73,14 +89,18 @@
   "medicine": {
     "$oid": "625bb4cc1fa6f5c57224981c"
   },
-  "quantity": 1,
+  "quantity": 5,
   "amountPerUnit": 3420,
   "totalAmount": 3420,
   "createdAt": {
-    "$date": "2022-02-19T03:48:00.763Z"
+    "$date": {
+      "$numberLong": "1645242480763"
+    }
   },
   "updatedAt": {
-    "$date": "2022-02-19T03:48:00.763Z"
+    "$date": {
+      "$numberLong": "1645242480763"
+    }
   },
   "__v": 0
 },{
@@ -94,10 +114,14 @@
   "amountPerUnit": 2513,
   "totalAmount": 2513,
   "createdAt": {
-    "$date": "2022-02-19T03:48:42.984Z"
+    "$date": {
+      "$numberLong": "1645242522984"
+    }
   },
   "updatedAt": {
-    "$date": "2022-02-19T03:48:42.984Z"
+    "$date": {
+      "$numberLong": "1645242522984"
+    }
   },
   "__v": 0
 },{
@@ -111,10 +135,14 @@
   "amountPerUnit": 1605,
   "totalAmount": 1605,
   "createdAt": {
-    "$date": "2022-03-13T04:07:45.374Z"
+    "$date": {
+      "$numberLong": "1647144465374"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-13T04:07:45.374Z"
+    "$date": {
+      "$numberLong": "1647144465374"
+    }
   },
   "__v": 0
 },{
@@ -128,10 +156,14 @@
   "amountPerUnit": 1605,
   "totalAmount": 1605,
   "createdAt": {
-    "$date": "2022-03-13T04:08:31.181Z"
+    "$date": {
+      "$numberLong": "1647144511181"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-13T04:08:31.181Z"
+    "$date": {
+      "$numberLong": "1647144511181"
+    }
   },
   "__v": 0
 },{
@@ -145,10 +177,14 @@
   "amountPerUnit": 3355,
   "totalAmount": 3355,
   "createdAt": {
-    "$date": "2022-03-19T04:09:55.183Z"
+    "$date": {
+      "$numberLong": "1647662995183"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-19T04:09:55.183Z"
+    "$date": {
+      "$numberLong": "1647662995183"
+    }
   },
   "__v": 0
 },{
@@ -158,14 +194,18 @@
   "medicine": {
     "$oid": "625bb4cc1fa6f5c57224981c"
   },
-  "quantity": 1,
+  "quantity": 3,
   "amountPerUnit": 3420,
   "totalAmount": 3420,
   "createdAt": {
-    "$date": "2022-03-19T04:10:42.119Z"
+    "$date": {
+      "$numberLong": "1647663042119"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-19T04:10:42.119Z"
+    "$date": {
+      "$numberLong": "1647663042119"
+    }
   },
   "__v": 0
 },{
@@ -179,10 +219,14 @@
   "amountPerUnit": 3375,
   "totalAmount": 3375,
   "createdAt": {
-    "$date": "2022-03-19T04:11:31.307Z"
+    "$date": {
+      "$numberLong": "1647663091307"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-19T04:11:31.307Z"
+    "$date": {
+      "$numberLong": "1647663091307"
+    }
   },
   "__v": 0
 },{
@@ -192,14 +236,18 @@
   "medicine": {
     "$oid": "625bb4cc1fa6f5c57224981c"
   },
-  "quantity": 1,
+  "quantity": 3,
   "amountPerUnit": 3420,
   "totalAmount": 3420,
   "createdAt": {
-    "$date": "2022-03-31T04:12:33.377Z"
+    "$date": {
+      "$numberLong": "1648699953377"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-31T04:12:33.377Z"
+    "$date": {
+      "$numberLong": "1648699953377"
+    }
   },
   "__v": 0
 },{
@@ -213,10 +261,14 @@
   "amountPerUnit": 2054,
   "totalAmount": 2054,
   "createdAt": {
-    "$date": "2022-03-31T04:13:19.115Z"
+    "$date": {
+      "$numberLong": "1648699999115"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-31T04:13:19.115Z"
+    "$date": {
+      "$numberLong": "1648699999115"
+    }
   },
   "__v": 0
 },{
@@ -230,10 +282,14 @@
   "amountPerUnit": 1573,
   "totalAmount": 1573,
   "createdAt": {
-    "$date": "2022-03-31T04:14:26.918Z"
+    "$date": {
+      "$numberLong": "1648700066918"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-31T04:14:26.918Z"
+    "$date": {
+      "$numberLong": "1648700066918"
+    }
   },
   "__v": 0
 },{
@@ -243,14 +299,18 @@
   "medicine": {
     "$oid": "625bb6071fa6f5c572249820"
   },
-  "quantity": 1,
+  "quantity": 10,
   "amountPerUnit": 2513,
   "totalAmount": 2513,
   "createdAt": {
-    "$date": "2022-03-31T04:15:17.756Z"
+    "$date": {
+      "$numberLong": "1648700117756"
+    }
   },
   "updatedAt": {
-    "$date": "2022-03-31T04:15:17.756Z"
+    "$date": {
+      "$numberLong": "1648700117756"
+    }
   },
   "__v": 0
 },{
@@ -260,14 +320,18 @@
   "medicine": {
     "$oid": "625bb4cc1fa6f5c57224981c"
   },
-  "quantity": 1,
+  "quantity": 5,
   "amountPerUnit": 3420,
   "totalAmount": 3420,
   "createdAt": {
-    "$date": "2022-04-19T04:15:59.464Z"
+    "$date": {
+      "$numberLong": "1650341759464"
+    }
   },
   "updatedAt": {
-    "$date": "2022-04-19T04:15:59.464Z"
+    "$date": {
+      "$numberLong": "1650341759464"
+    }
   },
   "__v": 0
 },{
@@ -277,14 +341,18 @@
   "medicine": {
     "$oid": "625bb4a61fa6f5c57224981b"
   },
-  "quantity": 1,
+  "quantity": 2,
   "amountPerUnit": 3952,
   "totalAmount": 3952,
   "createdAt": {
-    "$date": "2022-04-19T04:16:28.499Z"
+    "$date": {
+      "$numberLong": "1650341788499"
+    }
   },
   "updatedAt": {
-    "$date": "2022-04-19T04:16:28.499Z"
+    "$date": {
+      "$numberLong": "1650341788499"
+    }
   },
   "__v": 0
 },{
@@ -298,10 +366,14 @@
   "amountPerUnit": 3375,
   "totalAmount": 3375,
   "createdAt": {
-    "$date": "2022-04-19T04:16:40.055Z"
+    "$date": {
+      "$numberLong": "1652156200055"
+    }
   },
   "updatedAt": {
-    "$date": "2022-04-19T04:16:40.055Z"
+    "$date": {
+      "$numberLong": "1652156200055"
+    }
   },
   "__v": 0
 },{
@@ -315,10 +387,371 @@
   "amountPerUnit": 2513,
   "totalAmount": 5026,
   "createdAt": {
-    "$date": "2022-04-19T04:16:56.838Z"
+    "$date": {
+      "$numberLong": "1650341816838"
+    }
   },
   "updatedAt": {
-    "$date": "2022-04-19T04:16:56.838Z"
+    "$date": {
+      "$numberLong": "1650341816838"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626e75e3b6dcde47d5acbbe5"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 2,
+  "amountPerUnit": 3420,
+  "totalAmount": 3420,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1639563012762"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1639563012762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626e760ab6dcde47d5acbbe9"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 3,
+  "amountPerUnit": 3420,
+  "totalAmount": 3420,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1636971012762"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1636971012762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626e764cb6dcde47d5acbbf1"
+  },
+  "medicine": {
+    "$oid": "625bb52d1fa6f5c57224981d"
+  },
+  "quantity": 3,
+  "amountPerUnit": 3375,
+  "totalAmount": 10125,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1634292612762"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1634292612762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626e7657b6dcde47d5acbbf5"
+  },
+  "medicine": {
+    "$oid": "625bb52d1fa6f5c57224981d"
+  },
+  "quantity": 0,
+  "amountPerUnit": 3375,
+  "totalAmount": 0,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1636971012762"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1636971012762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626e7660b6dcde47d5acbbf9"
+  },
+  "medicine": {
+    "$oid": "625bb52d1fa6f5c57224981d"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3375,
+  "totalAmount": 3375,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1639563012762"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1639563012762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626e768cb6dcde47d5acbbfd"
+  },
+  "medicine": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "quantity": 1,
+  "amountPerUnit": 2513,
+  "totalAmount": 2513,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1639563012762"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1639563012762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626e7698b6dcde47d5acbc01"
+  },
+  "medicine": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "quantity": 2,
+  "amountPerUnit": 2513,
+  "totalAmount": 5026,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1636971012762"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1636971012762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "626e76adb6dcde47d5acbc05"
+  },
+  "medicine": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "quantity": 1,
+  "amountPerUnit": 2513,
+  "totalAmount": 2513,
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1634292612762"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1634292612762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627e78c90f66a8b96555abb2"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 2,
+  "amountPerUnit": 3480,
+  "totalAmount": 6960,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652455625173"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652455625173"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627e798fa30eda371fce70e7"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 2,
+  "amountPerUnit": 3480,
+  "totalAmount": 6960,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652455823480"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652455823480"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627f9640dd7224659203fa41"
+  },
+  "medicine": {
+    "$oid": "625bb6571fa6f5c572249821"
+  },
+  "quantity": 3,
+  "amountPerUnit": 3000,
+  "totalAmount": 9000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652442304645"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652442304645"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627f964add7224659203fa4e"
+  },
+  "medicine": {
+    "$oid": "625bb6571fa6f5c572249821"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3000,
+  "totalAmount": 3000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652528714365"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652528714365"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6284d6ed2e0f6e876bdc7f2c"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 1,
+  "amountPerUnit": 3480,
+  "totalAmount": 3480,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652872941652"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652872941652"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628671680586293e8b2a2424"
+  },
+  "medicine": {
+    "$oid": "625bb5d51fa6f5c57224981f"
+  },
+  "quantity": 1,
+  "amountPerUnit": 1573,
+  "totalAmount": 1573,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652978024577"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978024577"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6286716a0586293e8b2a2431"
+  },
+  "medicine": {
+    "$oid": "625bb5d51fa6f5c57224981f"
+  },
+  "quantity": 1,
+  "amountPerUnit": 1573,
+  "totalAmount": 1573,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652978026524"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978026524"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6286716c0586293e8b2a243e"
+  },
+  "medicine": {
+    "$oid": "625bb5d51fa6f5c57224981f"
+  },
+  "quantity": 1,
+  "amountPerUnit": 1573,
+  "totalAmount": 1573,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652978028287"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978028287"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62875c10f5c1718e7f990e41"
+  },
+  "medicine": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "quantity": 4,
+  "amountPerUnit": 2513,
+  "totalAmount": 10052,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1653038096216"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1653038096216"
+    }
   },
   "__v": 0
 }]

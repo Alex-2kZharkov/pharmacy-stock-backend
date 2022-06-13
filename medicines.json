@@ -4,22 +4,60 @@
   },
   "name": "Черника Витал 500мл",
   "quantity": 1,
-  "primaryAmount": 3040,
-  "finalAmount": 3952,
+  "primaryAmount": 3000,
+  "finalAmount": 3450,
   "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978596281"
+    }
+  },
+  "orderPoint": 1,
+  "prognosis": 2,
+  "soldForMonth": 0,
+  "category": {
+    "$oid": "6283e01a2398d6ee5438bf04"
+  },
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1652978596281"
+    }
+  }
 },{
   "_id": {
     "$oid": "625bb4cc1fa6f5c57224981c"
   },
   "name": "Бодрость на весь день. Витамины A-Z компакт",
-  "quantity": 1,
-  "primaryAmount": 2974,
-  "finalAmount": 3420,
-  "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "quantity": 3,
+  "primaryAmount": 3000,
+  "finalAmount": 3480,
+  "percent": 16,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655058543334"
+    }
+  },
+  "orderPoint": 2,
+  "prognosis": 5,
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1655057557698"
+    }
+  },
+  "soldForMonth": 0,
+  "category": {
+    "$oid": "6283e01a2398d6ee5438bf04"
+  }
 },{
   "_id": {
     "$oid": "625bb52d1fa6f5c57224981d"
@@ -29,8 +67,26 @@
   "primaryAmount": 2935,
   "finalAmount": 3375,
   "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978594352"
+    }
+  },
+  "orderPoint": 2,
+  "prognosis": 1,
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1652978594352"
+    }
+  },
+  "category": {
+    "$oid": "628472c04243fad63bc87ff3"
+  }
 },{
   "_id": {
     "$oid": "625bb5971fa6f5c57224981e"
@@ -40,8 +96,25 @@
   "primaryAmount": 1786,
   "finalAmount": 2054,
   "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1653037965532"
+    }
+  },
+  "prognosis": 1,
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1653037965531"
+    }
+  },
+  "category": {
+    "$oid": "6283e0332398d6ee5438bf06"
+  }
 },{
   "_id": {
     "$oid": "625bb5d51fa6f5c57224981f"
@@ -51,8 +124,27 @@
   "primaryAmount": 1368,
   "finalAmount": 1573,
   "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978590230"
+    }
+  },
+  "prognosis": 1,
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1652978590230"
+    }
+  },
+  "orderPoint": 1,
+  "soldForMonth": 0,
+  "category": {
+    "$oid": "6283e01a2398d6ee5438bf04"
+  }
 },{
   "_id": {
     "$oid": "625bb6071fa6f5c572249820"
@@ -62,19 +154,55 @@
   "primaryAmount": 2185,
   "finalAmount": 2513,
   "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1653735128529"
+    }
+  },
+  "prognosis": 2,
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1653735128528"
+    }
+  },
+  "orderPoint": 2,
+  "category": {
+    "$oid": "6283e01a2398d6ee5438bf04"
+  }
 },{
   "_id": {
     "$oid": "625bb6571fa6f5c572249821"
   },
   "name": "Краска для волос Насыщенный коричневый",
   "quantity": 1,
-  "primaryAmount": 1396,
-  "finalAmount": 1605,
-  "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "primaryAmount": 2000,
+  "finalAmount": 3000,
+  "percent": 50,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978598008"
+    }
+  },
+  "prognosis": 1,
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1652978598008"
+    }
+  },
+  "soldForMonth": 0,
+  "category": {
+    "$oid": "6283e0332398d6ee5438bf06"
+  }
 },{
   "_id": {
     "$oid": "625bb6ac1fa6f5c572249822"
@@ -84,8 +212,25 @@
   "primaryAmount": 1396,
   "finalAmount": 1605,
   "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978592346"
+    }
+  },
+  "prognosis": 1,
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1652978592345"
+    }
+  },
+  "category": {
+    "$oid": "6283e0332398d6ee5438bf06"
+  }
 },{
   "_id": {
     "$oid": "625bb6ef1fa6f5c572249823"
@@ -95,6 +240,23 @@
   "primaryAmount": 2935,
   "finalAmount": 3355,
   "percent": 15,
-  "createdAt": "2022-01-04T10:10:12.762Z",
-  "updatedAt": "2022-01-04T10:10:12.762Z"
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1621072660281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978603286"
+    }
+  },
+  "prognosis": 1,
+  "prognosisUpdatedAt": {
+    "$date": {
+      "$numberLong": "1652978603286"
+    }
+  },
+  "category": {
+    "$oid": "6283e01a2398d6ee5438bf04"
+  }
 }]

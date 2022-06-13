@@ -1,180 +1,47 @@
 [{
   "_id": {
-    "$oid": "624ac6d9b1c58e64e5719820"
+    "$oid": "6270b3984a76512837eb5bd6"
   },
   "firstName": "Александр",
-  "lastName": "Жарков",
-  "email": "test@gmail.com",
-  "phone": "996123456789",
-  "password": "",
-  "role": {
-    "$oid": "6249ddb54d758458f8286940"
-  },
-  "createdAt": {
-    "$date": {
-      "$numberLong": "1649067737921"
-    }
-  },
-  "updatedAt": {
-    "$date": {
-      "$numberLong": "1649067737921"
-    }
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "624ac74657e5f585d444e78a"
-  },
-  "firstName": "Татьяна",
-  "lastName": "Марченко",
-  "email": "test2@gmail.com",
-  "phone": "996987456123",
-  "password": "",
-  "role": {
-    "$oid": "6249de334d758458f8286942"
-  },
-  "createdAt": {
-    "$date": {
-      "$numberLong": "1649067846730"
-    }
-  },
-  "updatedAt": {
-    "$date": {
-      "$numberLong": "1649067846730"
-    }
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "624ac76eb8612abae9561c34"
-  },
-  "firstName": "Иван",
-  "lastName": "Иванов",
-  "email": "test.ivanov@gmail.com",
-  "phone": "996147852369",
-  "password": "",
-  "role": {
-    "$oid": "6249ddf94d758458f8286941"
-  },
-  "createdAt": {
-    "$date": {
-      "$numberLong": "1649067886814"
-    }
-  },
-  "updatedAt": {
-    "$date": {
-      "$numberLong": "1649067886814"
-    }
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6257116cbf2d5c24c70a345b"
-  },
-  "firstName": "test",
-  "lastName": "lastName",
-  "email": "test@gmail.com",
-  "phone": "+996550110764",
-  "role": {
-    "$oid": "6249de334d758458f8286942"
-  },
-  "createdAt": {
-    "$date": {
-      "$numberLong": "1649873260136"
-    }
-  },
-  "updatedAt": {
-    "$date": {
-      "$numberLong": "1649873260136"
-    }
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "62571507b0b800ad23f3573f"
-  },
-  "firstName": "Aleksandr",
-  "lastName": "Zharkov",
-  "email": "aleksandr_zharkov1@epam.com",
+  "lastName": "Жарков1",
+  "email": "alexander.06.zharkov@gmail.com",
   "phone": "+996555555555",
   "role": {
-    "$oid": "6249de334d758458f8286942"
+    "$oid": "6263e1232efae24aeaaafc1d"
   },
   "createdAt": {
     "$date": {
-      "$numberLong": "1649874183962"
+      "$numberLong": "1651553176158"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1649874183962"
+      "$numberLong": "1655104248097"
     }
   },
-  "__v": 0
+  "__v": 0,
+  "password": "$2b$10$NSvT2Q1OCbxxCR70ys5VzumPCDdn6bSuS2Fwup2Ch9aLEBcpV9MxS"
 },{
   "_id": {
-    "$oid": "6257169eb0b800ad23f35754"
+    "$oid": "628686e029118f136d465ffc"
   },
-  "firstName": "Aleksandr",
-  "lastName": "Zharkov",
-  "email": "aleksandr_zharkov1@epam.com",
+  "firstName": "Александр",
+  "lastName": "Жарков2",
+  "email": "alexander.test.06.zharkov@gmail.com",
   "phone": "+996555555555",
   "role": {
-    "$oid": "6249ddf94d758458f8286941"
+    "$oid": "6263e1342efae24aeaaafc1f"
   },
   "createdAt": {
     "$date": {
-      "$numberLong": "1649874590741"
+      "$numberLong": "1652983520589"
     }
   },
   "updatedAt": {
     "$date": {
-      "$numberLong": "1649874590741"
+      "$numberLong": "1652983520589"
     }
   },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "6257187eb0b800ad23f3575d"
-  },
-  "firstName": "Aleksandr",
-  "lastName": "Zharkov",
-  "email": "aleksandr_zharkov1@epam.com",
-  "phone": "+996555555555",
-  "role": {
-    "$oid": "6249de334d758458f8286942"
-  },
-  "createdAt": {
-    "$date": {
-      "$numberLong": "1649875070727"
-    }
-  },
-  "updatedAt": {
-    "$date": {
-      "$numberLong": "1649875070727"
-    }
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "625718b6b0b800ad23f35762"
-  },
-  "firstName": "Aleksandr",
-  "lastName": "Zharkov",
-  "email": "aleksandr_zharkov1@epam.com",
-  "phone": "+996555555555",
-  "role": {
-    "$oid": "6249ddf94d758458f8286941"
-  },
-  "createdAt": {
-    "$date": {
-      "$numberLong": "1649875126665"
-    }
-  },
-  "updatedAt": {
-    "$date": {
-      "$numberLong": "1649875126665"
-    }
-  },
-  "__v": 0
+  "__v": 0,
+  "password": "$2b$10$042.m9vvT7G3EoiGAMaTleTvDFquUITkzjgcHndQG7.J977vQoOIO"
 }]

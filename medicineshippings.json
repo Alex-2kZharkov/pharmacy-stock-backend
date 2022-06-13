@@ -1,0 +1,226 @@
+[{
+  "_id": {
+    "$oid": "627cdb00c8f20cfe3ead6c10"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 0,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1652349637688"
+    }
+  },
+  "totalAmount": 6000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1641895296883"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652455823491"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627ce0afc8f20cfe3ead6c1e"
+  },
+  "medicine": {
+    "$oid": "625bb6571fa6f5c572249821"
+  },
+  "quantity": 0,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1653646920000"
+    }
+  },
+  "totalAmount": 9000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1641983151807"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652528704651"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627ce11bc8f20cfe3ead6c27"
+  },
+  "medicine": {
+    "$oid": "625bb6571fa6f5c572249821"
+  },
+  "quantity": 0,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1652437600155"
+    }
+  },
+  "totalAmount": 3000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652351259983"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652528714370"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627d266e3772206a169be4e8"
+  },
+  "medicine": {
+    "$oid": "625bb5d51fa6f5c57224981f"
+  },
+  "quantity": 0,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1653060120000"
+    }
+  },
+  "totalAmount": 1573,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652369006472"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978028289"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6281c6f587a19c356e098a4a"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 0,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1653968220000"
+    }
+  },
+  "totalAmount": 3000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652672245102"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652872941673"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6281c73887a19c356e098a59"
+  },
+  "medicine": {
+    "$oid": "625bb5d51fa6f5c57224981f"
+  },
+  "quantity": 0,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1652758709183"
+    }
+  },
+  "totalAmount": 1368,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652672312469"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978026526"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6281c79e87a19c356e098a70"
+  },
+  "medicine": {
+    "$oid": "625bb5d51fa6f5c57224981f"
+  },
+  "quantity": 0,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1652758808882"
+    }
+  },
+  "totalAmount": 1368,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652672414330"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652978024581"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62875bdff5c1718e7f990e30"
+  },
+  "medicine": {
+    "$oid": "625bb6071fa6f5c572249820"
+  },
+  "quantity": 0,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1653901980000"
+    }
+  },
+  "totalAmount": 8740,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1653038047853"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1653038096218"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a6306fd608e51021dbe101"
+  },
+  "medicine": {
+    "$oid": "625bb4cc1fa6f5c57224981c"
+  },
+  "quantity": 2,
+  "expirationDate": {
+    "$date": {
+      "$numberLong": "1655663280000"
+    }
+  },
+  "totalAmount": 6000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655058543349"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655058543349"
+    }
+  },
+  "__v": 0
+}]

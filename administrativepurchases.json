@@ -1,0 +1,137 @@
+[{
+  "_id": {
+    "$oid": "6280fa607fb53031fa5f25b5"
+  },
+  "name": "Test name",
+  "amount": 1500,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652619872920"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652619872920"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6280fa767fb53031fa5f25b9"
+  },
+  "name": "Test2",
+  "amount": 1500,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652533494438"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652619894438"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6280fa7a7fb53031fa5f25bd"
+  },
+  "name": "Test3",
+  "amount": 1500,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652015098294"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652619898294"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6280fa807fb53031fa5f25c1"
+  },
+  "name": "Test33",
+  "amount": 1500,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652619904836"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652619904836"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6280fa847fb53031fa5f25c5"
+  },
+  "name": "Зарплата за апрель",
+  "amount": 4000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652619908371"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652873278476"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6281007387a19c356e0989eb"
+  },
+  "name": "Б2",
+  "amount": 100000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652621427895"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652622329252"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6284d8532e0f6e876bdc7f6a"
+  },
+  "name": "Тест тест",
+  "amount": 500,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652873299213"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655103104876"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a6df92d608e51021dbe12c"
+  },
+  "name": "Зарплата за май",
+  "amount": 5000,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655103378095"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655103378095"
+    }
+  },
+  "__v": 0
+}]

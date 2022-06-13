@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "6283e01a2398d6ee5438bf04"
+  },
+  "name": "БАД",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652723354558"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652809754558"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6283e0332398d6ee5438bf06"
+  },
+  "name": "Бьюти средства",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652809779009"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652809779009"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6283e03f2398d6ee5438bf08"
+  },
+  "name": "Витамины",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652809791478"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652813381495"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6283eec83ab63809c163e321"
+  },
+  "name": "Тестовая2",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652813512763"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652813517593"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6284d5f52e0f6e876bdc7ed8"
+  },
+  "name": "новая",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1652872693728"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1652872693728"
+    }
+  },
+  "__v": 0
+}]
